@@ -12,16 +12,17 @@ import {
     NavbarLink,
     NavbarToggle,
 } from "flowbite-react";
+import { NavLink } from 'react-router';
 
 
 const NavbarMenu = () => {
     return (
         <div>
             <Navbar fluid rounded>
-                <NavbarBrand href="https://flowbite-react.com">
+                <NavLink>
                     {/* <img src="/favicon.svg" className="mr-3 h-6 sm:h-9" alt="Flowbite React Logo" /> */}
-                    <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">TicketBari</span>
-                </NavbarBrand>
+                    <span className="self-center whitespace-nowrap text-2xl font-bold text-primary dark:text-white">TicketBari</span>
+                </NavLink>
                 <div className="flex md:order-2">
                     <Dropdown
                         arrowIcon={false}
@@ -43,13 +44,12 @@ const NavbarMenu = () => {
                     <NavbarToggle />
                 </div>
                 <NavbarCollapse>
-                    <NavbarLink href="#" active>
-                        Home
-                    </NavbarLink>
-                    <NavbarLink href="#">About</NavbarLink>
-                    <NavbarLink href="#">Services</NavbarLink>
-                    <NavbarLink href="#">Pricing</NavbarLink>
-                    <NavbarLink href="#">Contact</NavbarLink>
+                    <NavbarLink active>Home</NavbarLink>
+
+                    <NavbarLink ><NavLink>About</NavLink></NavbarLink>
+                    <NavbarLink ><NavLink>Services</NavLink> </NavbarLink>
+                    <NavbarLink ><NavLink>Pricing</NavLink></NavbarLink>
+                    <NavbarLink ><NavLink>Contact</NavLink></NavbarLink>
                 </NavbarCollapse>
             </Navbar>
         </div>
