@@ -43,13 +43,18 @@ const NavbarMenu = () => {
                     </Dropdown>
                     <NavbarToggle />
                 </div>
+
                 <NavbarCollapse>
                     <NavbarLink active>Home</NavbarLink>
 
-                    <NavbarLink ><NavLink>About</NavLink></NavbarLink>
-                    <NavbarLink ><NavLink>Services</NavLink> </NavbarLink>
-                    <NavbarLink ><NavLink>Pricing</NavLink></NavbarLink>
-                    <NavbarLink ><NavLink>Contact</NavLink></NavbarLink>
+                    <NavbarLink ><NavLink>All Tickets</NavLink></NavbarLink>
+                    <NavbarLink ><NavLink>Dashboard</NavLink> </NavbarLink>
+                    {/* <NavbarLink ><NavLink>Pricing</NavLink></NavbarLink>
+                    <NavbarLink ><NavLink>Contact</NavLink></NavbarLink> */}
+
+                    <NavbarLink ><NavLink to='/login'>Login</NavLink></NavbarLink>
+                    <NavbarLink ><NavLink to='/register'>Register</NavLink></NavbarLink>
+
                 </NavbarCollapse>
             </Navbar>
         </div>
