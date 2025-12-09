@@ -45,15 +45,19 @@ const NavbarMenu = () => {
                 </div>
 
                 <NavbarCollapse>
-                    <NavbarLink to='/' active>Home</NavbarLink>
 
-                    <NavbarLink ><NavLink>All Tickets</NavLink></NavbarLink>
-                    <NavbarLink ><NavLink>Dashboard</NavLink> </NavbarLink>
+                    <NavLink to='/' >Home</NavLink>
+                    <NavLink to='/all-tickets'>All Tickets</NavLink>
+                    <NavLink to='/dashboard' >Dashboard </NavLink>
+                    <NavLink to='/login'>Login</NavLink>
+                    <NavLink to='/register'>Register</NavLink>
+
+                    {/* <NavbarLink >Dashboard </NavbarLink> */}
+                    {/* <NavbarLink >All Tickets</NavbarLink> */}
                     {/* <NavbarLink ><NavLink>Pricing</NavLink></NavbarLink>
                     <NavbarLink ><NavLink>Contact</NavLink></NavbarLink> */}
 
-                    <NavbarLink ><NavLink to='/login'>Login</NavLink></NavbarLink>
-                    <NavbarLink ><NavLink to='/register'>Register</NavLink></NavbarLink>
+                    
 
                 </NavbarCollapse>
             </Navbar>

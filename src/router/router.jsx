@@ -4,6 +4,8 @@ import ErrorPage from "../Pages/ErrorPage";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
+import AllTickets from "../Pages/AllTickets/AllTickets";
+import DashboardLayout from "../Layouts/DashboardLayout";
 
 export const router = createBrowserRouter([
     {
@@ -17,24 +19,20 @@ export const router = createBrowserRouter([
                 element: <Home></Home>
             },
             {
-                path: 'all-tickets',
-                element: <p>All Tickts</p>
+                path: '/all-tickets',
+                element: <AllTickets></AllTickets>
             },
             {
-                path: 'all-tickets',
-                element: <p>All Tickts</p>
-            },
-            {
-                path: 'login',
+                path: '/login',
                 element: <Login></Login>
             },
             {
-                path: 'register',
+                path: '/register',
                 element: <Register></Register>
             },
             {
                 path: 'dashboard',
-                element: <p>dashboard</p>,
+                element: <DashboardLayout></DashboardLayout>,
                 children:[
                     {
                         path: 'user',

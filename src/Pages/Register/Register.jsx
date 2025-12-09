@@ -1,8 +1,35 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router';
+import useAuth from '../../hooks/useAuth';
 
 const Register = () => {
+
+    const { createUser } = useAuth()
+
+    const handleUserRegister = (e) => {
+        e.preventDefault();
+
+        const form = e.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const photoURL = form.photoURL.value;
+        const password = form.password.value;
+
+        console.log({ name, email, photoURL, password });
+
+        createUser(email, password)
+            .then(result => {
+                const user = result.user
+                console.log(user)
+            })
+            .catch(error => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log(errorCode, errorMessage);
+            })
+
+    }
 
     const {
         register,
@@ -15,94 +42,68 @@ const Register = () => {
         <div className='py-10 bg-gray-50'>
             <section>
                 <div
-                    class="flex items-center justify-center px-4 py-10 sm:px-6 sm:py-16 lg:px-8 lg:py-8">
-                    <div class="bg-white xl:mx-auto xl:w-full rounded-xl bg-clip-border shadow-md p-4 xl:max-w-sm 2xl:max-w-md">
-                        <div class="mb-2 flex justify-center"></div>
-                        <h2 class="text-center text-2xl font-bold leading-tight text-black">
-                            Register your account
-                        </h2>
-                        <p class="mt-2 text-center text-sm text-gray-600">
-                            Create a free account
-                        </p>
-                        <form class="mt-8" method="POST" action="#">
-                            <div class="space-y-5">
-                                <div>
-                                    <label class="text-base font-medium text-gray-900">
-                                        Name
-                                    </label>
+                    className="flex items-center justify-center px-4 py-10 sm:px-6 sm:py-16 lg:px-8 lg:py-8">
+                    <div className="bg-white xl:mx-auto xl:w-full rounded-xl bg-clip-border shadow-md p-4 xl:max-w-sm 2xl:max-w-md">
+                        <div className="mb-2 flex justify-center"></div>
 
-                                    <div class="mt-2">
-                                        <input
-                                            placeholder="Name"
-                                            type="text"
-                                            class="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                                        />
+                        <h2 className="text-center text-2xl font-bold leading-tight text-black">Register your account</h2>
+                        <p className="mt-2 text-center text-sm text-gray-600">Create a free account</p>
+
+
+                        <form onSubmit={handleUserRegister} className="mt-8">
+                            <div className="space-y-5">
+                                <div>
+                                    <label className="text-base font-medium text-gray-900">Name</label>
+                                    <div className="mt-2">
+                                        <input name='name' placeholder="Name" type="text"
+                                            className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50" />
                                     </div>
                                 </div>
 
                                 <div>
-                                    <label class="text-base font-medium text-gray-900">
-                                        Email address
-                                    </label>
-
-                                    <div class="mt-2">
-                                        <input
-                                            placeholder="Email"
-                                            type="email"
-                                            class="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                                        />
+                                    <label className="text-base font-medium text-gray-900">Email address</label>
+                                    <div className="mt-2">
+                                        <input name='email' placeholder="Email" type="email"
+                                            className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50" />
                                     </div>
                                 </div>
 
                                 <div>
-                                    <label class="text-base font-medium text-gray-900">
-                                        Photo URL
-                                    </label>
-
-                                    <div class="mt-2">
-                                        <input
-                                            placeholder=" Photo URL"
-                                            type="url"
-                                            class="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                                        />
+                                    <label className="text-base font-medium text-gray-900">Photo URL</label>
+                                    <div className="mt-2">
+                                        <input name='photoURL' placeholder=" Photo URL" type="url"
+                                            className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50" />
                                     </div>
                                 </div>
 
                                 <div>
-                                    <div class="flex items-center justify-between">
-                                        <label class="text-base font-medium text-gray-900">
-                                            Password
-                                        </label>
-
+                                    <div className="flex items-center justify-between">
+                                        <label className="text-base font-medium text-gray-900">Password</label>
                                     </div>
-                                    <div class="mt-2">
-                                        <input
-                                            placeholder="Password"
-                                            type="password"
-                                            class="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                                        />
+                                    <div className="mt-2">
+                                        <input name='password' placeholder="Password" type="password"
+                                            className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50" />
                                     </div>
                                 </div>
 
                                 <div>
-                                    <button
-                                        class="inline-flex w-full items-center justify-center rounded-md bg-black px-3.5 py-2.5 font-semibold leading-7 text-white hover:bg-black/80"
-                                        type="button"> Register
+                                    <button className="inline-flex w-full items-center justify-center rounded-md bg-black px-3.5 py-2.5 font-semibold leading-7 text-white hover:bg-black/80"
+                                        type="submit"> Register
                                     </button>
                                 </div>
 
                                 <Link to='/login'>
-                                    <p class="text-center">Already have a account? <span class="underline font-semibold">login</span></p>
+                                    <p className="text-center">Already have a account? <span className="underline font-semibold">login</span></p>
                                 </Link>
 
                             </div>
                         </form>
-                        <div class="mt-3 space-y-3">
+                        <div className="mt-3 space-y-3">
                             <button
-                                class="relative inline-flex w-full items-center justify-center rounded-md border border-gray-400 bg-white px-3.5 py-2.5 font-semibold text-gray-700 transition-all duration-200 hover:bg-gray-100 hover:text-black focus:bg-gray-100 focus:text-black focus:outline-none"
+                                className="relative inline-flex w-full items-center justify-center rounded-md border border-gray-400 bg-white px-3.5 py-2.5 font-semibold text-gray-700 transition-all duration-200 hover:bg-gray-100 hover:text-black focus:bg-gray-100 focus:text-black focus:outline-none"
                                 type="button"
                             >
-                                <span class="mr-2 inline-block">
+                                <span className="mr-2 inline-block">
                                     <svg version="1.1" width={20} id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style={{ enableBackground: 'new 0 0 512 512' }} xmlSpace="preserve">
                                         <path style={{ fill: '#FBBB00' }} d="M113.47,309.408L95.648,375.94l-65.139,1.378C11.042,341.211,0,299.9,0,256
       	c0-42.451,10.324-82.483,28.624-117.732h0.014l57.992,10.632l25.404,57.644c-5.317,15.501-8.215,32.141-8.215,49.456
