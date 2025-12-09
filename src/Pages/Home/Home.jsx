@@ -70,8 +70,8 @@ const Home = () => {
             {/* Section */}
             <section className='py-16 bg-blue-600 dark:bg-blue-700 px-4'>
                 <div className='text-center text-white'>
-                    <h2 class="text-4xl font-bold mb-4">Ready to Start Your Journey?</h2>
-                    <p class="text-xl mb-8 text-blue-100">Book your tickets now and travel with confidence</p>
+                    <h2 className="text-4xl font-bold mb-4">Ready to Start Your Journey?</h2>
+                    <p className="text-xl mb-8 text-blue-100">Book your tickets now and travel with confidence</p>
                     <button className='bg-white text-black px-6 py-3 rounded-lg'>Book Now</button>
                 </div>
             </section>

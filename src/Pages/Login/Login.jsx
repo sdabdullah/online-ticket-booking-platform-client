@@ -1,24 +1,31 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link,  } from 'react-router';
 import useAuth from '../../hooks/useAuth';
+import { useForm } from 'react-hook-form';
 
 const Login = () => {
 
-    const { signIn } = useAuth()
+    const { signInUser } = useAuth()
+    const { register, handleSubmit, formState: { errors } } = useForm()
 
-    const handleLoginuser = (e) => {
+    
 
-        e.preventDefault();
-        const form = e.target;
-        const email = form.email.value;
-        const password = form.password.value;
+    const handleLoginUser = (data) => {
+
+        const { email, password } = data
+
+        // e.preventDefault();
+        // const form = e.target;
+        // const email = form.email.value;
+        // const password = form.password.value;
 
         console.log({ email, password });
 
-        signIn(email, password)
+        signInUser(email, password)
             .then((userCredential) => {
                 const user = userCredential.user;
                 console.log(user);
+                
             })
             .catch((error) => {
                 const errorCode = error.code;
@@ -40,14 +47,19 @@ const Login = () => {
 
                         <p className="mt-2 text-center text-sm text-gray-600"></p>
 
-                        <form onSubmit={handleLoginuser} className="mt-8">
+                        <form onSubmit={handleSubmit(handleLoginUser)} className="mt-8">
                             <div className="space-y-5">
 
                                 <div>
                                     <label className="text-base font-medium text-gray-900">Email address</label>
                                     <div className="mt-2">
-                                        <input name='email' placeholder="Email" type="email"
+                                        <input type="email" {...register('email', { required: true })}
+                                            placeholder="Email"
                                             className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50" />
+                                        {
+                                            errors.email?.type === 'required' &&
+                                            <p className='text-red-600 text-xs mt-1 font-semibold'>Email is required</p>
+                                        }
                                     </div>
                                 </div>
 
@@ -62,8 +74,13 @@ const Login = () => {
                                     </div>
 
                                     <div className="mt-2">
-                                        <input name='password' placeholder="Password" type="password"
+                                        <input type="password" {...register('password', { required: true })}
+                                            placeholder="Password"
                                             className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50" />
+                                        {
+                                            errors.password?.type === 'required' &&
+                                            <p className='text-red-600 text-xs mt-1 font-semibold'>Password is required</p>
+                                        }
                                     </div>
                                 </div>
                                 <div>

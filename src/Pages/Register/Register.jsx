@@ -4,24 +4,28 @@ import { Link } from 'react-router';
 import useAuth from '../../hooks/useAuth';
 
 const Register = () => {
-
     const { createUser } = useAuth()
+    const { register, handleSubmit, formState: { errors } } = useForm()
 
-    const handleUserRegister = (e) => {
-        e.preventDefault();
+    
 
-        const form = e.target;
-        const name = form.name.value;
-        const email = form.email.value;
-        const photoURL = form.photoURL.value;
-        const password = form.password.value;
+    const handleUserRegister = (data) => {
 
-        console.log({ name, email, photoURL, password });
+        const { name, photoURL, email, password } = data
+
+        // const form = e.target;
+        // const name = form.name.value;
+        // const email = form.email.value;
+        // const photoURL = form.photoURL.value;
+        // const password = form.password.value;
+
+        console.log(data);
 
         createUser(email, password)
             .then(result => {
                 const user = result.user
                 console.log(user)
+                
             })
             .catch(error => {
                 const errorCode = error.code;
@@ -31,12 +35,7 @@ const Register = () => {
 
     }
 
-    const {
-        register,
-        handleSubmit,
-        watch,
-        formState: { errors },
-    } = useForm()
+
 
     return (
         <div className='py-10 bg-gray-50'>
@@ -50,29 +49,44 @@ const Register = () => {
                         <p className="mt-2 text-center text-sm text-gray-600">Create a free account</p>
 
 
-                        <form onSubmit={handleUserRegister} className="mt-8">
+                        <form onSubmit={handleSubmit(handleUserRegister)} className="mt-8">
                             <div className="space-y-5">
                                 <div>
                                     <label className="text-base font-medium text-gray-900">Name</label>
                                     <div className="mt-2">
-                                        <input name='name' placeholder="Name" type="text"
+                                        <input type="text" {...register('name', { required: true })}
+                                            placeholder="Name"
                                             className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50" />
+                                        {
+                                            errors.name?.type === 'required' &&
+                                            <p className='text-red-600 text-xs mt-1 font-semibold'>Name is required</p>
+                                        }
                                     </div>
                                 </div>
 
                                 <div>
                                     <label className="text-base font-medium text-gray-900">Email address</label>
                                     <div className="mt-2">
-                                        <input name='email' placeholder="Email" type="email"
+                                        <input type="email" {...register('email', { required: true })}
+                                            placeholder="Email"
                                             className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50" />
+                                        {
+                                            errors.email?.type === 'required' &&
+                                            <p className='text-red-600 text-xs mt-1 font-semibold'>Email is required</p>
+                                        }
                                     </div>
                                 </div>
 
                                 <div>
                                     <label className="text-base font-medium text-gray-900">Photo URL</label>
                                     <div className="mt-2">
-                                        <input name='photoURL' placeholder=" Photo URL" type="url"
+                                        <input type="url" {...register('photoURL', { required: true })}
+                                            placeholder=" Photo URL"
                                             className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50" />
+                                        {/* {
+                                            errors.photoURL?.type === 'required' &&
+                                            <p className='text-red-600 text-xs mt-1 font-semibold'>photo URL is required</p>
+                                        } */}
                                     </div>
                                 </div>
 
@@ -81,8 +95,16 @@ const Register = () => {
                                         <label className="text-base font-medium text-gray-900">Password</label>
                                     </div>
                                     <div className="mt-2">
-                                        <input name='password' placeholder="Password" type="password"
+                                        <input type="password" {...register('password', {
+                                            required: true,
+                                            pattern: /^(?=.*[A-Z])(?=.*[a-z]).{6,}$/,
+                                        })}
+                                            placeholder="Password"
                                             className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50" />
+                                        {
+                                            errors.password?.type === 'required' &&
+                                            <p className='text-red-600 text-xs mt-1 font-semibold'>enter at least 6 characters including One uppercase & One lowercase letter.</p>
+                                        }
                                     </div>
                                 </div>
 
