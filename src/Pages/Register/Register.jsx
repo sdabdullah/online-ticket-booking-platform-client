@@ -19,8 +19,23 @@ const Register = () => {
                             <div class="space-y-5">
                                 <div>
                                     <label class="text-base font-medium text-gray-900">
+                                        Name
+                                    </label>
+
+                                    <div class="mt-2">
+                                        <input
+                                            placeholder="Name"
+                                            type="text"
+                                            class="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                                        />
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label class="text-base font-medium text-gray-900">
                                         Email address
                                     </label>
+
                                     <div class="mt-2">
                                         <input
                                             placeholder="Email"
@@ -29,18 +44,27 @@ const Register = () => {
                                         />
                                     </div>
                                 </div>
+
+                                <div>
+                                    <label class="text-base font-medium text-gray-900">
+                                         Photo URL
+                                    </label>
+
+                                    <div class="mt-2">
+                                        <input
+                                            placeholder=" Photo URL"
+                                            type="url"
+                                            class="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                                        />
+                                    </div>
+                                </div>
+
                                 <div>
                                     <div class="flex items-center justify-between">
                                         <label class="text-base font-medium text-gray-900">
                                             Password
                                         </label>
-                                        <a
-                                            class="text-sm font-semibold text-black hover:underline"
-                                            title=""
-                                            href="#"
-                                        >
-                                            Forgot password?
-                                        </a>
+                                        
                                     </div>
                                     <div class="mt-2">
                                         <input
@@ -50,17 +74,16 @@ const Register = () => {
                                         />
                                     </div>
                                 </div>
+                                
                                 <div>
                                     <button
                                         class="inline-flex w-full items-center justify-center rounded-md bg-black px-3.5 py-2.5 font-semibold leading-7 text-white hover:bg-black/80"
-                                        type="button"
-                                    >
-                                        Register
+                                        type="button"> Register
                                     </button>
                                 </div>
 
                                 <Link to='/login'>
-                                    <p class="text-center">Already have a account? <span class="underline">login</span></p>
+                                    <p class="text-center">Already have a account? <span class="underline font-semibold">login</span></p>
                                 </Link>
 
                             </div>

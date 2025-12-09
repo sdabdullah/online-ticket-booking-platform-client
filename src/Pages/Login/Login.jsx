@@ -13,7 +13,6 @@ const Login = () => {
                             Login to your account
                         </h2>
                         <p class="mt-2 text-center text-sm text-gray-600">
-                            Don't have an account? Create a free account
                         </p>
                         <form class="mt-8" method="POST" action="#">
                             <div class="space-y-5">
@@ -34,13 +33,11 @@ const Login = () => {
                                         <label class="text-base font-medium text-gray-900">
                                             Password
                                         </label>
-                                        <a
-                                            class="text-sm font-semibold text-black hover:underline"
+                                        <Link class="text-sm font-semibold text-black hover:underline"
                                             title=""
-                                            href="#"
-                                        >
+                                            href="#">
                                             Forgot password?
-                                        </a>
+                                        </Link>
                                     </div>
                                     <div class="mt-2">
                                         <input
@@ -57,7 +54,7 @@ const Login = () => {
                                     </button>
                                 </div>
                                 <Link to='/register'>
-                                    <p class="text-center">Don't have an account ? <span class="underline"> Register Now </span></p>
+                                    <p class="text-center mb-4">Don't have an account ? <span class="underline font-semibold"> Register Now </span></p>
                                 </Link>
                             </div>
                         </form>
@@ -82,7 +79,7 @@ const Login = () => {
       	C318.115,0,375.068,22.126,419.404,58.936z" />
             </svg>
                                 </span>
-                                Sign in with Google
+                                Login with Google
                             </button>
                         </div>
                     </div>
