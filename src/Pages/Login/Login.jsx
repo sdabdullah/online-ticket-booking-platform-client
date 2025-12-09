@@ -1,55 +1,94 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const Login = () => {
     return (
-        <div className='py-15 bg-gray-50'>
-            <div className="relative mx-auto flex w-96 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
-                <div className="relative mx-4 -mt-6 mb-4 grid h-10 place-items-center overflow-hidden rounded-xl  bg-clip-border py-10">
-                    <h3 className="block font-sans text-3xl font-semibold leading-snug tracking-normal antialiased">
-                        Sign In
-                    </h3>
-                </div>
-                <div className="flex flex-col gap-4 p-6">
-                    <div className="relative h-11 w-full min-w-[200px]">
-                        <input placeholder className="peer h-full w-full rounded-md border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-3 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-cyan-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50" />
-                        <label className="before:content[' '] after:content[' pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-blue-gray-400 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-blue-gray-200 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-blue-gray-200 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[4.1] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-cyan-500 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:!border-cyan-500 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:!border-cyan-500 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
-                            Email
-                        </label>
-                    </div>
-                    <div className="relative h-11 w-full min-w-[200px]">
-                        <input placeholder className="peer h-full w-full rounded-md border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-3 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-cyan-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50" />
-                        <label className="before:content[' '] after:content[' pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-blue-gray-400 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-blue-gray-200 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-blue-gray-200 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[4.1] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-cyan-500 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:!border-cyan-500 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:!border-cyan-500 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
-                            Password
-                        </label>
-                    </div>
-                    <div className="-ml-2.5">
-                        <div className="inline-flex items-center">
-                            <label data-ripple-dark="true" htmlFor="checkbox" className="relative flex cursor-pointer items-center rounded-full p-3">
-                                <input id="checkbox" className="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-cyan-500 checked:bg-cyan-500 checked:before:bg-cyan-500 hover:before:opacity-10" type="checkbox" />
-                                <span className="pointer-events-none absolute top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 text-white opacity-0 transition-opacity peer-checked:opacity-100">
-                                    <svg strokeWidth={1} stroke="currentColor" fill="currentColor" viewBox="0 0 20 20" className="h-3.5 w-3.5" xmlns="http://www.w3.org/2000/svg">
-                                        <path clipRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fillRule="evenodd" />
-                                    </svg>
+        <div className='py-10 bg-gray-50'>
+            <section>
+                <div class="flex items-center justify-center px-4 py-10 sm:px-6 sm:py-16 lg:px-8 lg:py-8">
+
+                    <div class="bg-white xl:mx-auto xl:w-full rounded-xl bg-clip-border shadow-md p-4 xl:max-w-sm 2xl:max-w-md">
+                        <div class="mb-2 flex justify-center"></div>
+                        <h2 class="text-center text-2xl font-bold leading-tight text-black">
+                            Login to your account
+                        </h2>
+                        <p class="mt-2 text-center text-sm text-gray-600">
+                            Don't have an account? Create a free account
+                        </p>
+                        <form class="mt-8" method="POST" action="#">
+                            <div class="space-y-5">
+                                <div>
+                                    <label class="text-base font-medium text-gray-900">
+                                        Email address
+                                    </label>
+                                    <div class="mt-2">
+                                        <input
+                                            placeholder="Email"
+                                            type="email"
+                                            class="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                                        />
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex items-center justify-between">
+                                        <label class="text-base font-medium text-gray-900">
+                                            Password
+                                        </label>
+                                        <a
+                                            class="text-sm font-semibold text-black hover:underline"
+                                            title=""
+                                            href="#"
+                                        >
+                                            Forgot password?
+                                        </a>
+                                    </div>
+                                    <div class="mt-2">
+                                        <input
+                                            placeholder="Password"
+                                            type="password"
+                                            class="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                                        />
+                                    </div>
+                                </div>
+                                <div>
+                                    <button
+                                        class="inline-flex w-full items-center justify-center rounded-md bg-black px-3.5 py-2.5 font-semibold leading-7 text-white hover:bg-black/80" type="button">
+                                        Login
+                                    </button>
+                                </div>
+                                <Link to='/register'>
+                                    <p class="text-center">Don't have an account ? <span class="underline"> Register Now </span></p>
+                                </Link>
+                            </div>
+                        </form>
+                        <div class="mt-3 space-y-3">
+                            <button
+                                class="relative inline-flex w-full items-center justify-center rounded-md border border-gray-400 bg-white px-3.5 py-2.5 font-semibold text-gray-700 transition-all duration-200 hover:bg-gray-100 hover:text-black focus:bg-gray-100 focus:text-black focus:outline-none"
+                                type="button"
+                            >
+                                <span class="mr-2 inline-block">
+                                    <svg version="1.1" width={20} id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style={{enableBackground: 'new 0 0 512 512'}} xmlSpace="preserve">
+              <path style={{fill: '#FBBB00'}} d="M113.47,309.408L95.648,375.94l-65.139,1.378C11.042,341.211,0,299.9,0,256
+      	c0-42.451,10.324-82.483,28.624-117.732h0.014l57.992,10.632l25.404,57.644c-5.317,15.501-8.215,32.141-8.215,49.456
+      	C103.821,274.792,107.225,292.797,113.47,309.408z" />
+              <path style={{fill: '#518EF8'}} d="M507.527,208.176C510.467,223.662,512,239.655,512,256c0,18.328-1.927,36.206-5.598,53.451
+      	c-12.462,58.683-45.025,109.925-90.134,146.187l-0.014-0.014l-73.044-3.727l-10.338-64.535
+      	c29.932-17.554,53.324-45.025,65.646-77.911h-136.89V208.176h138.887L507.527,208.176L507.527,208.176z" />
+              <path style={{fill: '#28B446'}} d="M416.253,455.624l0.014,0.014C372.396,490.901,316.666,512,256,512
+      	c-97.491,0-182.252-54.491-225.491-134.681l82.961-67.91c21.619,57.698,77.278,98.771,142.53,98.771
+      	c28.047,0,54.323-7.582,76.87-20.818L416.253,455.624z" />
+              <path style={{fill: '#F14336'}} d="M419.404,58.936l-82.933,67.896c-23.335-14.586-50.919-23.012-80.471-23.012
+      	c-66.729,0-123.429,42.957-143.965,102.724l-83.397-68.276h-0.014C71.23,56.123,157.06,0,256,0
+      	C318.115,0,375.068,22.126,419.404,58.936z" />
+            </svg>
                                 </span>
-                            </label>
-                            <label htmlFor="checkbox" className="mt-px cursor-pointer select-none font-light text-gray-700">
-                                Remember Me
-                            </label>
+                                Sign in with Google
+                            </button>
                         </div>
                     </div>
                 </div>
-                <div className="p-6 pt-0">
-                    <button data-ripple-light="true" type="button" className="block w-full select-none rounded-lg bg-gradient-to-tr from-cyan-600 to-cyan-400 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-cyan-500/20 transition-all hover:shadow-lg hover:shadow-cyan-500/40 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
-                        Sign In
-                    </button>
-                    <p className="mt-6 flex justify-center font-sans text-sm font-light leading-normal text-inherit antialiased">
-                        Don't have an account?
-                        <a className="ml-1 block font-sans text-sm font-bold leading-normal text-cyan-500 antialiased" href="#signup">
-                            Sign up
-                        </a>
-                    </p>
-                </div>
-            </div>
+            </section>
+
         </div>
     );
 };

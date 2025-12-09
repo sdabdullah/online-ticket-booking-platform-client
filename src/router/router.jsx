@@ -25,6 +25,14 @@ export const router = createBrowserRouter([
                 element: <p>All Tickts</p>
             },
             {
+                path: 'login',
+                element: <Login></Login>
+            },
+            {
+                path: 'register',
+                element: <Register></Register>
+            },
+            {
                 path: 'dashboard',
                 element: <p>dashboard</p>,
                 children:[
@@ -38,14 +46,7 @@ export const router = createBrowserRouter([
                     },
                 ]
             },
-            {
-                path: 'login',
-                element: <Login></Login>
-            },
-            {
-                path: 'register',
-                element: <Register></Register>
-            },
+            
         ]
     }
 ])

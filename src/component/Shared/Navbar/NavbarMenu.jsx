@@ -45,7 +45,7 @@ const NavbarMenu = () => {
                 </div>
 
                 <NavbarCollapse>
-                    <NavbarLink active>Home</NavbarLink>
+                    <NavbarLink to='/' active>Home</NavbarLink>
 
                     <NavbarLink ><NavLink>All Tickets</NavLink></NavbarLink>
                     <NavbarLink ><NavLink>Dashboard</NavLink> </NavbarLink>

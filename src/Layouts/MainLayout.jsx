@@ -12,7 +12,7 @@ const MainLayout = () => {
                 </header>
             </section>
             
-            <main className=''>
+            <main>
                 <Outlet></Outlet>
             </main>
 
