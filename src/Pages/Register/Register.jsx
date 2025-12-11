@@ -1,16 +1,23 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router';
+import { Link, NavLink, useLocation, useNavigate } from 'react-router';
 import useAuth from '../../hooks/useAuth';
+import toast from 'react-hot-toast';
 
 const Register = () => {
-    const { createUser } = useAuth()
+    const { createUser, registerWithGoogle, updateUserProfile } = useAuth()
     const { register, handleSubmit, formState: { errors } } = useForm()
 
-    
+    const navigate = useNavigate()
+    const location = useLocation()
+    const from = location.state || '/'
+
+
+
+
+
 
     const handleUserRegister = (data) => {
-
         const { name, photoURL, email, password } = data
 
         // const form = e.target;
@@ -25,14 +32,38 @@ const Register = () => {
             .then(result => {
                 const user = result.user
                 console.log(user)
-                
+
+                updateUserProfile(name, photoURL)
+                    .then(() => {
+                        navigate(from, { replace: true })
+                        toast.success('Registration Successful')
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                        toast.error('Something is wrong in')
+                    })
             })
             .catch(error => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
                 console.log(errorCode, errorMessage);
+                toast.error('Registration Not Successful')
             })
+    }
 
+
+    const handleRegisterWithGoogle = () => {
+        registerWithGoogle()
+            .then(result => {
+                toast.success('Login Success')
+                console.log(result.user);
+                navigate(from, { replace: true })
+                // toast.success('Registration Successful with your google account')
+            })
+            .catch(error => {
+                console.log(error);
+                toast.error('Incorrect info or Network Problem')
+            })
     }
 
 
@@ -42,7 +73,7 @@ const Register = () => {
             <section>
                 <div
                     className="flex items-center justify-center px-4 py-10 sm:px-6 sm:py-16 lg:px-8 lg:py-8">
-                    <div className="bg-white xl:mx-auto xl:w-full rounded-xl bg-clip-border shadow-md p-4 xl:max-w-sm 2xl:max-w-md">
+                    <div className="bg-white xl:mx-auto xl:w-full rounded-xl bg-clip-border shadow-md p-10 xl:max-w-md 2xl:max-w-lg">
                         <div className="mb-2 flex justify-center"></div>
 
                         <h2 className="text-center text-2xl font-bold leading-tight text-black">Register your account</h2>
@@ -56,7 +87,7 @@ const Register = () => {
                                     <div className="mt-2">
                                         <input type="text" {...register('name', { required: true })}
                                             placeholder="Name"
-                                            className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50" />
+                                            className="flex h-10 w-full rounded-full border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50" />
                                         {
                                             errors.name?.type === 'required' &&
                                             <p className='text-red-600 text-xs mt-1 font-semibold'>Name is required</p>
@@ -69,7 +100,7 @@ const Register = () => {
                                     <div className="mt-2">
                                         <input type="email" {...register('email', { required: true })}
                                             placeholder="Email"
-                                            className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50" />
+                                            className="flex h-10 w-full rounded-full border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50" />
                                         {
                                             errors.email?.type === 'required' &&
                                             <p className='text-red-600 text-xs mt-1 font-semibold'>Email is required</p>
@@ -82,7 +113,7 @@ const Register = () => {
                                     <div className="mt-2">
                                         <input type="url" {...register('photoURL', { required: true })}
                                             placeholder=" Photo URL"
-                                            className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50" />
+                                            className="flex h-10 w-full rounded-full border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50" />
                                         {/* {
                                             errors.photoURL?.type === 'required' &&
                                             <p className='text-red-600 text-xs mt-1 font-semibold'>photo URL is required</p>
@@ -100,7 +131,7 @@ const Register = () => {
                                             pattern: /^(?=.*[A-Z])(?=.*[a-z]).{6,}$/,
                                         })}
                                             placeholder="Password"
-                                            className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50" />
+                                            className="flex h-10 w-full rounded-full border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50" />
                                         {
                                             errors.password?.type === 'required' &&
                                             <p className='text-red-600 text-xs mt-1 font-semibold'>enter at least 6 characters including One uppercase & One lowercase letter.</p>
@@ -109,21 +140,21 @@ const Register = () => {
                                 </div>
 
                                 <div>
-                                    <button className="inline-flex w-full items-center justify-center rounded-md bg-black px-3.5 py-2.5 font-semibold leading-7 text-white hover:bg-black/80"
-                                        type="submit"> Register
+                                    <button
+                                        className="relative group inline-block w-full py-2 px-7 cursor-pointer text-center text-gray-50 hover:text-gray-900 border bg-cyan-700 font-semibold rounded-full overflow-hidden transition duration-200">
+                                        <div
+                                            className="absolute top-0 right-full w-full h-full bg-white transform group-hover:translate-x-full group-hover:scale-102 transition duration-500"
+                                        ></div>
+                                        <span className="relative">Register</span>
                                     </button>
                                 </div>
-
-                                <Link to='/login'>
-                                    <p className="text-center">Already have a account? <span className="underline font-semibold">login</span></p>
-                                </Link>
-
                             </div>
                         </form>
+
+
                         <div className="mt-3 space-y-3">
-                            <button
-                                className="relative inline-flex w-full items-center justify-center rounded-md border border-gray-400 bg-white px-3.5 py-2.5 font-semibold text-gray-700 transition-all duration-200 hover:bg-gray-100 hover:text-black focus:bg-gray-100 focus:text-black focus:outline-none"
-                                type="button"
+                            <button onClick={handleRegisterWithGoogle}
+                                className="relative cursor-pointer inline-flex w-full text-sm items-center justify-center rounded-full border border-gray-400 bg-white px-3.5 py-2 font-semibold text-gray-700 transition-all duration-200 hover:bg-gray-100 hover:text-black focus:bg-gray-100 focus:text-black focus:outline-none"
                             >
                                 <span className="mr-2 inline-block">
                                     <svg version="1.1" width={20} id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style={{ enableBackground: 'new 0 0 512 512' }} xmlSpace="preserve">
@@ -143,6 +174,12 @@ const Register = () => {
                                 </span>
                                 Register with Google
                             </button>
+
+
+                            <p className="text-center text-sm">
+                                Already have a account? <Link to='/login'> <span className="underline font-semibold">login</span></Link>
+                            </p>
+
                         </div>
                     </div>
                 </div>

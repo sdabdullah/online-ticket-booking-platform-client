@@ -6,8 +6,8 @@ import Footer from '../component/Shared/Footer/MainFooter';
 const MainLayout = () => {
     return (
         <div>
-            <section className=''>
-                <header>
+            <section className='pb-17'>
+                <header className='fixed top-0 left-0 right-0 bg-white shadow '>
                     <Navbar></Navbar>
                 </header>
             </section>

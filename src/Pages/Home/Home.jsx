@@ -2,12 +2,13 @@ import React from 'react';
 import TicketCard from '../../component/ForHome/TicketCard';
 import WhyChoose from '../../component/ForHome/WhyChoose';
 import { Button } from "flowbite-react";
+import { NavLink } from 'react-router';
 
 const Home = () => {
     return (
         <div>
             <div className='w-11/12 mx-auto'>
-                <img className='h-90' src="https://images.unsplash.com/photo-1759313912855-0ea4bb3c0a2c?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
+                <img className='' src="https://images.unsplash.com/photo-1759313912855-0ea4bb3c0a2c?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
 
 
             </div>
@@ -68,11 +69,30 @@ const Home = () => {
 
 
             {/* Section */}
-            <section className='py-16 bg-blue-600 dark:bg-blue-700 px-4'>
+            <section className='py-16 bg-cyan-700 dark:bg-cyan-700 px-4'>
                 <div className='text-center text-white'>
                     <h2 className="text-4xl font-bold mb-4">Ready to Start Your Journey?</h2>
                     <p className="text-xl mb-8 text-blue-100">Book your tickets now and travel with confidence</p>
-                    <button className='bg-white text-black px-6 py-3 rounded-lg'>Book Now</button>
+
+
+                    {/* <NavLink to='/register'
+                        className="relative group inline-block  py-2 px-7 text-center text-gray-50 hover:text-gray-900 bg-cyan-700 font-semibold rounded-full overflow-hidden transition duration-200"
+                        href="#"
+                    >
+                        <div
+                            className="absolute top-0 right-full w-full h-full bg-white transform group-hover:translate-x-full group-hover:scale-102 transition duration-500"
+                        ></div>
+                        <span className="relative">Book Now</span>
+                    </NavLink> */}
+
+                    <NavLink to='/register'
+                        className="relative group inline-block py-2 px-7 cursor-pointer text-center text-gray-50 hover:text-gray-900 border bg-cyan-700 font-semibold rounded-full overflow-hidden transition duration-200">
+                        <div
+                            className="absolute top-0 right-full w-full h-full bg-white transform group-hover:translate-x-full group-hover:scale-102 transition duration-500"
+                        ></div>
+                        <span className="relative">Book Now</span>
+                    </NavLink>
+
                 </div>
             </section>
 

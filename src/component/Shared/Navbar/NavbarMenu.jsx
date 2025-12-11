@@ -2,6 +2,7 @@ import React from 'react';
 // app/routes/home.tsx
 import {
     Avatar,
+    Button,
     Dropdown,
     DropdownDivider,
     DropdownHeader,
@@ -12,10 +13,28 @@ import {
     NavbarLink,
     NavbarToggle,
 } from "flowbite-react";
-import { NavLink } from 'react-router';
+import { NavLink, useNavigate } from 'react-router';
+import useAuth from '../../../hooks/useAuth';
+import toast from 'react-hot-toast';
 
 
 const NavbarMenu = () => {
+
+    const { user, signOutUser } = useAuth();
+    const navigate = useNavigate();
+
+    const handleSignOutUser = () => {
+        signOutUser()
+            .then(() => {
+                toast.success('Logout Success')
+                navigate('/')
+            })
+            .catch((error) => {
+                console.log(error);
+                toast.error('Somthing is wrong')
+            })
+    }
+
     return (
         <div>
             <Navbar fluid rounded>
@@ -24,24 +43,56 @@ const NavbarMenu = () => {
                     <span className="self-center whitespace-nowrap text-2xl font-bold text-primary dark:text-white">TicketBari</span>
                 </NavLink>
                 <div className="flex md:order-2">
-                    <Dropdown
-                        arrowIcon={false}
-                        inline
-                        label={
-                            <Avatar alt="User settings" img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" rounded />
-                        }
-                    >
-                        <DropdownHeader>
-                            <span className="block text-sm">Bonnie Green</span>
-                            <span className="block truncate text-sm font-medium">name@flowbite.com</span>
-                        </DropdownHeader>
-                        <DropdownItem>Dashboard</DropdownItem>
-                        <DropdownItem>Settings</DropdownItem>
-                        <DropdownItem>Earnings</DropdownItem>
-                        <DropdownDivider />
-                        <DropdownItem>Sign out</DropdownItem>
-                    </Dropdown>
+
+                    {
+                        user ?
+                            <div className='flex items-center gap-3'>
+                                <Dropdown arrowIcon={false} inline label={<Avatar alt="User settings" img={user?.photoURL} rounded />}>
+                                    {/* <DropdownHeader>
+                                        <span className="block truncate text-sm font-medium">name@flowbite.com</span>
+                                    </DropdownHeader> */}
+
+                                    <DropdownItem>My Profile</DropdownItem>
+
+                                    <DropdownDivider />
+
+                                    <DropdownItem onClick={handleSignOutUser}>Logout</DropdownItem>
+                                </Dropdown>
+                                <span className=" text-sm">{user?.displayName}</span>
+
+                            </div>
+                            :
+
+                            <div className="invisible lg:visible space-x-2">
+
+                                <NavLink to='/login'
+                                    className="relative group inline-block py-2 px-7 cursor-pointer text-center text-gray-50 hover:text-gray-900 border bg-cyan-700 font-semibold rounded-full overflow-hidden transition duration-200"
+                                    href="#"
+                                >
+                                    <div
+                                        className="absolute top-0 right-full w-full h-full bg-white transform group-hover:translate-x-full group-hover:scale-102 transition duration-500"
+                                    ></div>
+                                    <span className="relative">Login</span>
+                                </NavLink>
+
+                                <NavLink to='/register'
+                                    className="relative group inline-block py-2 px-7 cursor-pointer text-center text-gray-50 hover:text-gray-900 border bg-cyan-700 font-semibold rounded-full overflow-hidden transition duration-200"
+                                    href="#"
+                                >
+                                    <div
+                                        className="absolute top-0 right-full w-full h-full bg-white transform group-hover:translate-x-full group-hover:scale-102 transition duration-500"
+                                    ></div>
+                                    <span className="relative">Register</span>
+                                </NavLink>
+
+                                {/* <NavbarLink >Dashboard </NavbarLink> */}
+
+                            </div>
+                    }
+
                     <NavbarToggle />
+
+
                 </div>
 
                 <NavbarCollapse>
@@ -49,17 +100,19 @@ const NavbarMenu = () => {
                     <NavLink to='/' >Home</NavLink>
                     <NavLink to='/all-tickets'>All Tickets</NavLink>
                     <NavLink to='/dashboard' >Dashboard </NavLink>
-                    <NavLink to='/login'>Login</NavLink>
-                    <NavLink to='/register'>Register</NavLink>
+
+                    <NavLink className='lg:hidden' to='/login'>Login</NavLink>
+                    <NavLink className='lg:hidden' to='/register'>Register</NavLink>
+
 
                     {/* <NavbarLink >Dashboard </NavbarLink> */}
                     {/* <NavbarLink >All Tickets</NavbarLink> */}
                     {/* <NavbarLink ><NavLink>Pricing</NavLink></NavbarLink>
                     <NavbarLink ><NavLink>Contact</NavLink></NavbarLink> */}
 
-                    
-
                 </NavbarCollapse>
+
+
             </Navbar>
         </div>
     );

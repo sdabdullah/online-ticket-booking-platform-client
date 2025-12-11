@@ -1,14 +1,16 @@
 import React from 'react';
-import { Link,  } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 import useAuth from '../../hooks/useAuth';
 import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
 
 const Login = () => {
-
-    const { signInUser } = useAuth()
+    const { signInUser, signInWithGoogle } = useAuth()
     const { register, handleSubmit, formState: { errors } } = useForm()
 
-    
+    const navigate = useNavigate()
+    const location = useLocation()
+    const from = location.state || '/'
 
     const handleLoginUser = (data) => {
 
@@ -25,15 +27,31 @@ const Login = () => {
             .then((userCredential) => {
                 const user = userCredential.user;
                 console.log(user);
-                
+                navigate(from, { replace: true })
+                toast.success('Login Successful')
             })
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
                 console.log(errorCode, errorMessage);
-                
+                toast.error('Login Not Successful')
             });
+    }
 
+
+
+    const handleSignInWithGoogle = () => {
+        signInWithGoogle()
+            .then(result => {
+                toast.success('Login Success')
+                console.log(result.user);
+                navigate(from, { replace: true })
+                // toast.success('Login Successful with your google account')
+            })
+            .catch(error => {
+                console.log(error);
+                toast.error('Incorrect info or Network Problem')
+            })
     }
 
     return (
@@ -41,7 +59,7 @@ const Login = () => {
             <section>
                 <div className="flex items-center justify-center px-4 py-10 sm:px-6 sm:py-16 lg:px-8 lg:py-8">
 
-                    <div className="bg-white xl:mx-auto xl:w-full rounded-xl bg-clip-border shadow-md p-4 xl:max-w-sm 2xl:max-w-md">
+                    <div className="bg-white xl:mx-auto xl:w-full rounded-xl bg-clip-border shadow-md p-10 xl:max-w-md 2xl:max-w-lg">
                         <div className="mb-2 flex justify-center"></div>
                         <h2 className="text-center text-2xl font-bold leading-tight text-black">Login to your account</h2>
 
@@ -55,7 +73,7 @@ const Login = () => {
                                     <div className="mt-2">
                                         <input type="email" {...register('email', { required: true })}
                                             placeholder="Email"
-                                            className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50" />
+                                            className="flex h-10 w-full rounded-full border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50" />
                                         {
                                             errors.email?.type === 'required' &&
                                             <p className='text-red-600 text-xs mt-1 font-semibold'>Email is required</p>
@@ -76,7 +94,7 @@ const Login = () => {
                                     <div className="mt-2">
                                         <input type="password" {...register('password', { required: true })}
                                             placeholder="Password"
-                                            className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50" />
+                                            className="flex h-10 w-full rounded-full border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50" />
                                         {
                                             errors.password?.type === 'required' &&
                                             <p className='text-red-600 text-xs mt-1 font-semibold'>Password is required</p>
@@ -84,22 +102,26 @@ const Login = () => {
                                     </div>
                                 </div>
                                 <div>
-                                    <button className="inline-flex w-full items-center justify-center rounded-md bg-black px-3.5 py-2.5 font-semibold leading-7 text-white hover:bg-black/80">
+                                    {/* <button className="inline-flex w-full cursor-pointer items-center justify-center rounded-md bg-black px-3.5 py-2.5 font-semibold leading-7 text-white hover:bg-black/80">
                                         Login
+                                    </button> */}
+
+                                    <button
+                                        className="relative group inline-block w-full py-2 px-7 cursor-pointer text-center text-gray-50 hover:text-gray-900 border bg-cyan-700 font-semibold rounded-full overflow-hidden transition duration-200">
+                                        <div
+                                            className="absolute top-0 right-full w-full h-full bg-white transform group-hover:translate-x-full group-hover:scale-102 transition duration-500"
+                                        ></div>
+                                        <span className="relative">Login</span>
                                     </button>
                                 </div>
-
-                                <Link to='/register'>
-                                    <p className="text-center mb-4">Don't have an account ? <span className="underline font-semibold"> Register Now </span></p>
-                                </Link>
-
                             </div>
                         </form>
 
 
                         <div className="mt-3 space-y-3">
-                            <button
-                                className="relative inline-flex w-full items-center justify-center rounded-md border border-gray-400 bg-white px-3.5 py-2.5 font-semibold text-gray-700 transition-all duration-200 hover:bg-gray-100 hover:text-black focus:bg-gray-100 focus:text-black focus:outline-none"
+
+                            <button onClick={handleSignInWithGoogle}
+                                className="relative inline-flex w-full text-sm cursor-pointer items-center justify-center rounded-full border border-gray-400 bg-white px-3.5 py-2 font-semibold text-gray-700 transition-all duration-200 hover:bg-gray-100 hover:text-black focus:bg-gray-100 focus:text-black focus:outline-none"
                                 type="button"
                             >
                                 <span className="mr-2 inline-block">
@@ -120,6 +142,12 @@ const Login = () => {
                                 </span>
                                 Login with Google
                             </button>
+
+                            <p className="text-center text-sm">
+                                Don't have an account ? <Link to='/register'><span className="underline font-semibold"> Register Now </span></Link>
+                            </p>
+
+
                         </div>
                     </div>
                 </div>
