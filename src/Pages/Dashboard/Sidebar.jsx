@@ -1,63 +1,87 @@
 import React from 'react'
 import { FaTachometerAlt, FaShoppingCart, FaUsers, FaUser, FaBox, FaCog, FaUsersCog } from 'react-icons/fa';
 import { FaShop } from 'react-icons/fa6';
-import { MdSpaceDashboard } from 'react-icons/md';
+import { GrUserAdmin } from 'react-icons/gr';
+import { MdArrowForwardIos, MdSpaceDashboard } from 'react-icons/md';
 import { Link } from 'react-router';
 
 const Sidebar = () => {
 	return (
 		<div className="text-gray-900 h-screen fixed px-4 w-16 md:w-20 border-gray-300 dark:border-gray-600 dark:bg-gray-900 dark:text-white">
 			<h1 className='text-2xl font-bold hidden md:block mt-4 text-center italic'></h1>
-			
+
 
 			<ul className="w-64 flex flex-col gap-1 border-l border-gray-200 pl-1">
-				
+
+				<li className="group w-14 overflow-hidden rounded-lg border-l border-transparent bg-white transition-all duration-500 hover:w-64 hover:border-gray-200 hover:shadow-lg has-[:focus]:w-64 has-[:focus]:shadow-lg">
+					<Link to='/dashboard'>
+						<button className="peer flex w-full cursor-pointer items-center gap-2.5 px-3 py-2 text-left text-purple-800 transition-all active:scale-95">
+							<div className="rounded-lg border-2 border-purple-300 bg-purple-100 p-1">
+								<MdSpaceDashboard size={25} />
+							</div>
+
+							<div className="font-semibold flex items-center underline"><MdArrowForwardIos /> Dashboard</div>
+
+						</button>
+					</Link>
+				</li>
+
 				<li className="group w-14 overflow-hidden rounded-lg border-l border-transparent bg-white transition-all duration-500 hover:w-64 hover:border-gray-200 hover:shadow-lg has-[:focus]:w-64 has-[:focus]:shadow-lg">
 					<button className="peer flex w-full cursor-pointer items-center gap-2.5 px-3 py-2 text-left text-purple-800 transition-all active:scale-95">
 						<div className="rounded-lg border-2 border-purple-300 bg-purple-100 p-1">
-							<MdSpaceDashboard size={25} />
+							<GrUserAdmin size={25} />
 						</div>
-						<div className="font-semibold">Dashboard</div>
+						<div className="font-semibold">Admin</div>
 					</button>
 					<div className="grid grid-rows-[0fr] overflow-hidden transition-all duration-500 peer-focus:grid-rows-[1fr]">
 						<div className="overflow-hidden">
 							<ul className="divide-y divide-gray-200 p-4 pt-0">
-								<li className="py-2">
-									<div className="flex items-center justify-between">
-										<button className="cursor-pointer font-semibold text-gray-800 hover:text-blue-600">
-											Profile 
-										</button>
-										<div className="text-sm text-gray-500"></div>
-									</div>
-									<div className="text-xs text-gray-500">Admin Profile</div>
-								</li>
-								<li className="py-1">
-									<div className="flex items-center justify-between">
-										<button className="cursor-pointer font-semibold text-gray-800 hover:text-blue-600">
-											Manage Tickets
-										</button>
-										<div className="text-sm text-gray-500"></div>
-									</div>
-									<div className="text-xs text-gray-500">Tickets Managment</div>
-								</li>
-								<li className="py-1">
-									<div className="flex items-center justify-between">
-										<button className="cursor-pointer font-semibold text-gray-800 hover:text-blue-600">
-											Manage Users
-										</button>
-										<div className="text-sm text-gray-500"></div>
-									</div>
-									<div className="text-xs text-gray-500">Users Managment</div>
-								</li>
-								<li className="py-1">
-									<div className="flex items-center justify-between">
-										<button className="cursor-pointer font-semibold text-gray-800 hover:text-blue-600">
-											Advertise Tickets
-										</button>
-										<div className="text-sm text-gray-500"></div>
-									</div>
-									<div className="text-xs text-gray-500">Tickets Advertising</div>
-								</li>
+								<Link to='/dashboard/admin-profile'>
+									<li className="py-2">
+										<div className="flex items-center justify-between">
+											<button className="cursor-pointer font-semibold text-gray-800 hover:text-blue-600">
+												Profile
+											</button>
+											<div className="text-sm text-gray-500"></div>
+										</div>
+										<div className="text-xs text-gray-500">Admin Profile</div>
+									</li>
+								</Link>
+
+								<Link to='/dashboard/manage-tickets'>
+									<li className="py-1">
+										<div className="flex items-center justify-between">
+											<button className="cursor-pointer font-semibold text-gray-800 hover:text-blue-600">
+												Manage Tickets
+											</button>
+											<div className="text-sm text-gray-500"></div>
+										</div>
+										<div className="text-xs text-gray-500">Tickets Managment</div>
+									</li>
+								</Link>
+								<Link to='/dashboard/manage-users'>
+									<li className="py-1">
+										<div className="flex items-center justify-between">
+											<button className="cursor-pointer font-semibold text-gray-800 hover:text-blue-600">
+												Manage Users
+											</button>
+											<div className="text-sm text-gray-500"></div>
+										</div>
+										<div className="text-xs text-gray-500">Users Managment</div>
+									</li>
+								</Link>
+
+								<Link to='/dashboard/advertise-tickets'>
+									<li className="py-1">
+										<div className="flex items-center justify-between">
+											<button className="cursor-pointer font-semibold text-gray-800 hover:text-blue-600">
+												Advertise Tickets
+											</button>
+											<div className="text-sm text-gray-500"></div>
+										</div>
+										<div className="text-xs text-gray-500">Tickets Advertising</div>
+									</li>
+								</Link>
 							</ul>
 						</div>
 					</div>
@@ -74,71 +98,81 @@ const Sidebar = () => {
 					<div className="grid grid-rows-[0fr] overflow-hidden transition-all duration-500 peer-focus:grid-rows-[1fr]">
 						<div className="overflow-hidden">
 							<ul className="divide-y divide-gray-200 p-4 pt-0">
-								<li className="py-2">
-									<div className="flex items-center justify-between">
-										<button className="peer cursor-pointer font-semibold text-gray-800 hover:text-blue-600">
-											Profile
-										</button>
-										<div className="text-sm text-gray-500 transition-all peer-hover:translate-x-1">
-											<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-4">
-												<path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-											</svg>
+								<Link to='/dashboard/vendor-profile'>
+									<li className="py-2">
+										<div className="flex items-center justify-between">
+											<button className="peer cursor-pointer font-semibold text-gray-800 hover:text-blue-600">
+												Profile
+											</button>
+											<div className="text-sm text-gray-500 transition-all peer-hover:translate-x-1">
+												<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-4">
+													<path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+												</svg>
+											</div>
 										</div>
-									</div>
-									<div className="text-xs text-gray-500">Your Vending Profile</div>
-								</li>
-								<li className="py-2">
-									<div className="flex items-center justify-between">
-										<button className="peer cursor-pointer font-semibold text-gray-800 hover:text-blue-600">
-											Ticket
-										</button>
-										<div className="text-sm text-gray-500 transition-all peer-hover:translate-x-1">
-											<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-4">
-												<path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-											</svg>
+										<div className="text-xs text-gray-500">Your Vending Profile</div>
+									</li>
+								</Link>
+								<Link to='/dashboard/add-ticket'>
+									<li className="py-2">
+										<div className="flex items-center justify-between">
+											<button className="peer cursor-pointer font-semibold text-gray-800 hover:text-blue-600">
+												Ticket
+											</button>
+											<div className="text-sm text-gray-500 transition-all peer-hover:translate-x-1">
+												<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-4">
+													<path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+												</svg>
+											</div>
 										</div>
-									</div>
-									<div className="text-xs text-gray-500">Add new Ticket</div>
-								</li>
-								<li className="py-2">
-									<div className="flex items-center justify-between">
-										<button className="peer cursor-pointer font-semibold text-gray-800 hover:text-blue-600">
-											My Added Tickets
-										</button>
-										<div className="text-sm text-gray-500 transition-all peer-hover:translate-x-1">
-											<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-4">
-												<path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-											</svg>
+										<div className="text-xs text-gray-500">Add new Ticket</div>
+									</li>
+								</Link>
+								<Link to='/dashboard/my-added-tickets'>
+									<li className="py-2">
+										<div className="flex items-center justify-between">
+											<button className="peer cursor-pointer font-semibold text-gray-800 hover:text-blue-600">
+												My Added Tickets
+											</button>
+											<div className="text-sm text-gray-500 transition-all peer-hover:translate-x-1">
+												<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-4">
+													<path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+												</svg>
+											</div>
 										</div>
-									</div>
-									<div className="text-xs text-gray-500">View Your added tickets</div>
-								</li>
-								<li className="py-1">
-									<div className="group/title flex items-center justify-between">
-										<button className="peer cursor-pointer font-semibold text-gray-800 hover:text-blue-600">
-											Requested Bookings
-										</button>
-										<div className="text-sm text-gray-500 transition-all peer-hover:translate-x-1">
-											<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-4">
-												<path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-											</svg>
+										<div className="text-xs text-gray-500">View Your added tickets</div>
+									</li>
+								</Link>
+								<Link to='/dashboard/requested-bookings'>
+									<li className="py-1">
+										<div className="group/title flex items-center justify-between">
+											<button className="peer cursor-pointer font-semibold text-gray-800 hover:text-blue-600">
+												Requested Bookings
+											</button>
+											<div className="text-sm text-gray-500 transition-all peer-hover:translate-x-1">
+												<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-4">
+													<path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+												</svg>
+											</div>
 										</div>
-									</div>
-									<div className="text-xs text-gray-500">View Requested Bookings</div>
-								</li>
-								<li className="py-1">
-									<div className="group/title flex items-center justify-between">
-										<button className="peer cursor-pointer font-semibold text-gray-800 hover:text-blue-600">
-											Revenue Overview
-										</button>
-										<div className="text-sm text-gray-500 transition-all peer-hover:translate-x-1">
-											<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-4">
-												<path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-											</svg>
+										<div className="text-xs text-gray-500">View Requested Bookings</div>
+									</li>
+								</Link>
+								<Link to='/dashboard/revenue-overview'>
+									<li className="py-1">
+										<div className="group/title flex items-center justify-between">
+											<button className="peer cursor-pointer font-semibold text-gray-800 hover:text-blue-600">
+												Revenue Overview
+											</button>
+											<div className="text-sm text-gray-500 transition-all peer-hover:translate-x-1">
+												<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-4">
+													<path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+												</svg>
+											</div>
 										</div>
-									</div>
-									<div className="text-xs text-gray-500">View Revenue Overview</div>
-								</li>
+										<div className="text-xs text-gray-500">View Revenue Overview</div>
+									</li>
+								</Link>
 							</ul>
 						</div>
 					</div>
@@ -184,7 +218,7 @@ const Sidebar = () => {
 								<li className="py-1">
 									<div className="group/title flex items-center justify-between">
 										<button className="peer cursor-pointer font-semibold text-gray-800 hover:text-blue-600">
-											Transaction History 
+											Transaction History
 										</button>
 										<div className="text-sm text-gray-500 transition-all peer-hover:translate-x-1">
 											<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-4">
@@ -283,7 +317,7 @@ const Sidebar = () => {
 				</li>
 			</ul>
 
-			
+
 
 			{/* <ul className='flex flex-col mt-5 text-xl'>
 				<Link to='/'>
