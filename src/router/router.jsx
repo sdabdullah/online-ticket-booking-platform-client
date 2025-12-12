@@ -6,6 +6,7 @@ import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import AllTickets from "../Pages/AllTickets/AllTickets";
 import DashboardLayout from "../Layouts/DashboardLayout";
+import Dashboard from "../Pages/Dashboard/Dashboard";
 
 export const router = createBrowserRouter([
     {
@@ -35,8 +36,8 @@ export const router = createBrowserRouter([
                 element: <DashboardLayout></DashboardLayout>,
                 children:[
                     {
-                        path: 'user',
-                        element: <p>User</p>
+                        path: '/dashboard',
+                        element: <Dashboard></Dashboard>
                     },
                     {
                         path: 'vendor',
