@@ -7,7 +7,7 @@ const MainLayout = () => {
     return (
         <div>
             <section className='pb-17'>
-                <header className='fixed top-0 left-0 right-0 z-50 bg-white shadow '>
+                <header className='fixed top-0 left-0 right-0 z-50 bg-white shadow'>
                     <Navbar></Navbar>
                 </header>
             </section>
