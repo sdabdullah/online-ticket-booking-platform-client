@@ -5,49 +5,64 @@ import { Link, NavLink } from 'react-router';
 const TicketCard = () => {
     return (
         <div>
-            <Card
-                className="lg:max-w-sm"
-                imgAlt="Apple Watch Series 7 in colors pink, silver, and black"
-                imgSrc="https://images.unsplash.com/photo-1582536621449-4638cf0bdbb6?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            >
-                <Link>
-                    <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                        Apple Watch Series 7 GPS, Aluminium Case, Starlight Sport
-                    </h5>
-                </Link>
-                <div className="mb-5 mt-2.5 flex items-center">
-                    
-                    {/* <svg
-                        className="h-5 w-5 text-yellow-300"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                    <span className="ml-3 mr-2 rounded bg-cyan-100 px-2.5 py-0.5 text-xs font-semibold text-cyan-800 dark:bg-cyan-200 dark:text-cyan-800">
-                        5.0
-                    </span> */}
 
+            <Card className="lg:max-w-sm "
+                imgAlt=""
+                imgSrc="https://images.unsplash.com/photo-1582536621449-4638cf0bdbb6?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+
+                <div>
+                    <h2 className='text-md md:text-lg lg:text-xl font-bold'>Bus Ticket</h2>
+                    {/* <h5 className='bg-green-200 px-2 md:px-3 py-1 text-xs md:text-sm rounded-full font-semibold'>Status: Pending</h5> */}
                 </div>
-                <div className="flex items-center justify-between">
-                    <span className="text-3xl font-bold text-gray-900 dark:text-white">$599</span>
-                    {/* <a
-                        href="#"
-                        className="rounded-lg bg-cyan-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-cyan-800 focus:outline-none focus:ring-4 focus:ring-cyan-300 dark:bg-cyan-600 dark:hover:bg-cyan-700 dark:focus:ring-cyan-800"
-                    >
-                        Add to cart
-                    </a> */}
 
-                    <NavLink to='/register'
-                        className="relative group inline-block py-2 px-7 cursor-pointer text-center text-gray-50 hover:text-gray-900 border bg-cyan-700 font-semibold rounded-full overflow-hidden transition duration-200">
+                <div>
+                    <div className='flex justify-between'>
+                        <p className=''>Quantity:</p> <p>2</p>
+                    </div>
+                    <div className='flex justify-between'>
+                        <p>Price:</p> <p>$200</p>
+                    </div>
+                </div>
+
+
+                <div className=" flex items-center justify-between">
+                    <p>Transport type: </p>
+                    <p>Bus</p>
+                </div>
+
+                <div className="mb-5 flex items-center">
+                    <p>Perks</p>
+                </div>
+
+
+                {/* <div className="flex"> */}
+                    {/* flex items-center justify-between */}
+                    {/* <span className="text-3xl font-bold text-gray-900 dark:text-white">$599</span> */}
+
+                    
+
+                    {/* <button 
+                            className="rounded-lg bg-cyan-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-cyan-800 focus:outline-none focus:ring-4 focus:ring-cyan-300 dark:bg-cyan-600 dark:hover:bg-cyan-700 dark:focus:ring-cyan-800">              
+                        </button> */}
+
+                    {/* <button className="relative group text-sm inline-block py-2 px-7 cursor-pointer text-center text-gray-50 hover:text-gray-900 border bg-cyan-700 font-semibold rounded-full overflow-hidden transition duration-200">
+
                         <div
                             className="absolute top-0 right-full w-full h-full bg-white transform group-hover:translate-x-full group-hover:scale-102 transition duration-500"
                         ></div>
                         <span className="relative">Book Now</span>
-                    </NavLink>
-                </div>
+                    </button>
+                </div> */}
+
+                <button className="relative group text-sm inline-block py-2 px-7 cursor-pointer text-center text-gray-50 hover:text-gray-900 border bg-cyan-700 font-semibold rounded-full overflow-hidden transition duration-200">
+
+                    <div
+                        className="absolute top-0 right-full w-full h-full bg-white transform group-hover:translate-x-full group-hover:scale-102 transition duration-500"
+                    ></div>
+                    <span className="relative">See details</span>
+                </button>
             </Card>
+
         </div>
     );
 };

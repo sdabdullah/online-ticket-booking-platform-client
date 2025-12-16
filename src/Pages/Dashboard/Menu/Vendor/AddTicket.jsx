@@ -17,11 +17,11 @@ const AddTicket = () => {
                         
                     </div> */}
                     <div class="flex flex-col self-stretch my-auto min-w-[240px]">
-                            <div class="text-base text-gray-800 font-semibold text-lg">Add your Ticket here</div>
-                            {/* <div class="mt-2 text-sm text-gray-500">
+                        <div class="text-gray-800 font-semibold text-lg">Add your Ticket here</div>
+                        {/* <div class="mt-2 text-sm text-gray-500">
                                 UX/UI designer, in Company Name Ltd.
                             </div> */}
-                        </div>
+                    </div>
                 </div>
 
                 <div class="grid grid-cols-2 gap-6 mb-10">
@@ -80,21 +80,35 @@ const AddTicket = () => {
                     <div id="input" class="relative">
                         <input type="phone" id="floating_outlined"
                             class="block w-full text-sm h-[50px] px-4 text-slate-900 bg-white rounded-[8px] border border-violet-200 appearance-none focus:border-transparent focus:outline focus:outline-2 focus:outline-primary focus:ring-0 hover:border-brand-500-secondary- peer invalid:border-error-500 invalid:focus:border-error-500 overflow-ellipsis overflow-hidden text-nowrap pr-[48px]"
-                            placeholder="PhoDeparture date & timene"
+                            placeholder="Departure date & timene"
                         // value=""
                         />
                         <label for="floating_outlined" class="peer-placeholder-shown:-z-10 peer-focus:z-10 absolute text-[14px] leading-[150%] text-primary peer-focus:text-primary peer-invalid:text-error-500 focus:invalid:text-error-500 duration-300 transform -translate-y-[1.2rem] scale-75 top-2 z-10 origin-[0] bg-white disabled:bg-gray-50-background- px-2 peer-focus:px-2 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-[1.2rem] rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">
                             Departure date & time
                         </label>
                     </div>
-                    <div id="input" class="relative">
-                        <input type="phone" id="floating_outlined"
-                            class="block w-full text-sm h-[50px] px-4 text-slate-900 bg-white rounded-[8px] border border-violet-200 appearance-none focus:border-transparent focus:outline focus:outline-2 focus:outline-primary focus:ring-0 hover:border-brand-500-secondary- peer invalid:border-error-500 invalid:focus:border-error-500 overflow-ellipsis overflow-hidden text-nowrap pr-[48px]"
-                            placeholder="PPerks (checkboxes)  (ex: AC, Breakfast etchone"
-                        // value=""
-                        />
+                    <div id="input" class="relative md:flex gap-5 border rounded-[8px] px-4 border-violet-200">
+
+                        <div className='flex items-center gap-2 mt-3'>
+                            <input type="checkbox"
+                                class="block text-sm text-slate-900 bg-white"
+                                placeholder=" Perks (checkboxes)  (ex: AC, Breakfast etc)" />
+
+                                <p>Breakfast</p>
+                        </div>
+                        <div className='flex items-center gap-2 mt-3'>
+                            <input type="checkbox"
+                                class="block text-sm h-4  text-slate-900 bg-white"
+                                placeholder=" Perks (checkboxes)  (ex: AC, Breakfast etc)" />
+
+                                <p>AC</p>
+                        </div>
+
+                        
+
+
                         <label for="floating_outlined" class="peer-placeholder-shown:-z-10 peer-focus:z-10 absolute text-[14px] leading-[150%] text-primary peer-focus:text-primary peer-invalid:text-error-500 focus:invalid:text-error-500 duration-300 transform -translate-y-[1.2rem] scale-75 top-2 z-10 origin-[0] bg-white disabled:bg-gray-50-background- px-2 peer-focus:px-2 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-[1.2rem] rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">
-                            Perks (checkboxes)  (ex: AC, Breakfast etc
+                            Perks (checkboxes)  (ex: AC, Breakfast etc)
                         </label>
                     </div>
                     <div id="input" class="relative">

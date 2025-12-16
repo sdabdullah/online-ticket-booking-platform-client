@@ -16,7 +16,7 @@ import AddTicket from "../Pages/Dashboard/Menu/Vendor/AddTicket";
 import MyAddedTickets from "../Pages/Dashboard/Menu/Vendor/MyAddedTickets";
 import RequestedBookings from "../Pages/Dashboard/Menu/Vendor/RequestedBookings";
 import RevenueOverview from "../Pages/Dashboard/Menu/Vendor/RevenueOverview";
-import MyBookedTickets from "../Pages/Dashboard/Menu/User/MyBookedTickets ";
+import MyBookedTickets from "../Pages/Dashboard/Menu/User/MyBookedTickets";
 import TransactionHistory from "../Pages/Dashboard/Menu/User/TransactionHistory";
 import UserProfile from "../Pages/Dashboard/Menu/User/UserProfile";
 

@@ -5,7 +5,7 @@ const MyBookedTickets = () => {
     return (
         <div className='grow p-8 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-3'>
 
-            <Card className="lg:max-w-sm "
+            <Card className="lg:max-w-sm"
                 imgAlt=""
                 imgSrc="https://images.unsplash.com/photo-1582536621449-4638cf0bdbb6?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
 
@@ -19,7 +19,7 @@ const MyBookedTickets = () => {
                         From: Rajshahi to: Coxbazar
                     </h5>
                     <div className='flex justify-between'>
-                        <p className=''>Seats Quantity:</p> <p>2</p>
+                        <p className=''>Booking Quantity:</p> <p>2</p>
                     </div>
                     <div className='flex justify-between'>
                         <p>Total:</p> <p>(price * Booking)</p>
@@ -145,7 +145,7 @@ const MyBookedTickets = () => {
                 imgSrc="https://images.unsplash.com/photo-1582536621449-4638cf0bdbb6?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
 
                 <div className='flex justify-between'>
-                    <h2 className='text-md md:text-lg lg:text-xl font-bold'>Bus Ticket</h2>
+                    {/* <h2 className='text-md md:text-lg lg:text-xl font-bold'>Bus Ticket</h2> */}
                     <h5 className='bg-green-200 px-2 md:px-3 py-1 text-xs md:text-sm rounded-full font-semibold'>Status: Pending</h5>
                 </div>
 
@@ -154,7 +154,7 @@ const MyBookedTickets = () => {
                         From: Rajshahi to: Coxbazar
                     </h5>
                     <div className='flex justify-between'>
-                        <p className=''>Seats Quantity:</p> <p>2</p>
+                        <p className=''>Booking Quantity:</p> <p>2</p>
                     </div>
                     <div className='flex justify-between'>
                         <p>Total:</p> <p>(price * Booking)</p>
