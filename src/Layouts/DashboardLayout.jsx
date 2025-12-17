@@ -19,7 +19,7 @@ const DashboardLayout = () => {
                 <Sidebar></Sidebar>
             </section>
 
-            <div className='grow ml-16 md:ml-65 h-full lg:h-screen bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-white'>
+            <div className='grow ml-16 md:ml-65 h-full lg:h-screen text-gray-900 dark:bg-gray-900 dark:text-white'>
                 <div>
                     <Navbar></Navbar>
                 </div>

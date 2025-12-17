@@ -1,9 +1,16 @@
 import React from 'react'
 import { CgProfile } from 'react-icons/cg';
 import { FaTachometerAlt, FaShoppingCart, FaUsers, FaUser, FaBox, FaCog, FaUsersCog } from 'react-icons/fa';
-import { FaShop } from 'react-icons/fa6';
+import { VscDiffAdded } from "react-icons/vsc";
+import { LuTicketCheck, LuTicketX } from "react-icons/lu";
+import { BsTicketDetailed } from "react-icons/bs";
+import { GrTransaction } from "react-icons/gr";
+import { TbBrandBooking } from "react-icons/tb";
+import { GrOverview } from "react-icons/gr";
+import { FcAdvertising } from "react-icons/fc";
+
 import { MdSpaceDashboard } from 'react-icons/md';
-import { Link, NavLink } from 'react-router';
+import { NavLink } from 'react-router';
 
 const Sidebar = () => {
 	return (
@@ -16,58 +23,58 @@ const Sidebar = () => {
 			<ul className='flex flex-col mt-5 text-lg'>
 
 				<NavLink to='/dashboard'>
-					<li className='flex items-center py-2 px-2 md:space-x-4  hover:rounded hover:cursor-pointer hover:bg-blue-600 hover:text-white'>
+					<li className='flex items-center py-2 px-2 md:space-x-4  hover:rounded hover:cursor-pointer hover:bg-cyan-700 hover:text-white'>
 						<FaTachometerAlt />
 						<span className='hidden md:inline'>Dashboard</span>
 					</li>
 				</NavLink>
 
 				<NavLink to='/dashboard/user-profile'>
-					<li className="flex items-center py-2 px-2 md:space-x-4  hover:rounded hover:cursor-pointer hover:bg-blue-600 hover:text-white">
+					<li className="flex items-center py-2 px-2 md:space-x-4  hover:rounded hover:cursor-pointer hover:bg-cyan-700 hover:text-white">
 						<CgProfile />
 						<span className="hidden md:inline ">Profile</span>
 					</li>
 				</NavLink>
 
 				<NavLink to='/dashboard/my-booked-tickets'>
-					<li className="flex items-center py-2 px-2 md:space-x-4  hover:rounded hover:cursor-pointer hover:bg-blue-600 hover:text-white">
-						<FaUsers />
+					<li className="flex items-center py-2 px-2 md:space-x-4  hover:rounded hover:cursor-pointer hover:bg-cyan-700 hover:text-white">
+						<BsTicketDetailed />
 						<span className="hidden md:inline ">My booked tickets</span>
 					</li>
 				</NavLink>
 
 				<NavLink to='/dashboard/transaction-history'>
-					<li className="flex items-center py-2 px-2 md:space-x-4  hover:rounded hover:cursor-pointer hover:bg-blue-600 hover:text-white">
-						<FaUser />
+					<li className="flex items-center py-2 px-2 md:space-x-4  hover:rounded hover:cursor-pointer hover:bg-cyan-700 hover:text-white">
+						<GrTransaction />
 						<span className="hidden md:inline ">Transaction history</span>
 					</li>
 				</NavLink>
 
 				{/* Vendor NavLinks */}
 				<NavLink to='/dashboard/add-ticket'>
-					<li className="flex items-center py-2 px-2 md:space-x-4 hover:rounded hover:cursor-pointer hover:bg-blue-600 hover:text-white">
-						<FaBox />
+					<li className="flex items-center py-2 px-2 md:space-x-4 hover:rounded hover:cursor-pointer hover:bg-cyan-700 hover:text-white">
+						<VscDiffAdded />
 						<span className="hidden md:inline ">Add ticket</span>
 					</li>
 				</NavLink>
 
 				<NavLink to='/dashboard/my-added-tickets'>
-					<li className="flex items-center py-2 px-2 md:space-x-4  hover:rounded hover:cursor-pointer hover:bg-blue-600 hover:text-white">
-						<FaCog />
+					<li className="flex items-center py-2 px-2 md:space-x-4  hover:rounded hover:cursor-pointer hover:bg-cyan-700 hover:text-white">
+						<LuTicketCheck />
 						<span className="hidden md:inline ">My added tickets</span>
 					</li>
 				</NavLink>
 
 				<NavLink to='/dashboard/requested-bookings'>
-					<li className="flex items-center py-2 px-2 md:space-x-4  hover:rounded hover:cursor-pointer hover:bg-blue-600 hover:text-white">
-						<FaCog />
+					<li className="flex items-center py-2 px-2 md:space-x-4  hover:rounded hover:cursor-pointer hover:bg-cyan-700 hover:text-white">
+						<TbBrandBooking />
 						<span className="hidden md:inline ">Requested bookings</span>
 					</li>
 				</NavLink>
 
 				<NavLink to='/dashboard/revenue-overview'>
-					<li className="flex items-center py-2 px-2 md:space-x-4  hover:rounded hover:cursor-pointer hover:bg-blue-600 hover:text-white">
-						<FaCog />
+					<li className="flex items-center py-2 px-2 md:space-x-4  hover:rounded hover:cursor-pointer hover:bg-cyan-700 hover:text-white">
+						<GrOverview />
 						<span className="hidden md:inline ">Revenue overview</span>
 					</li>
 				</NavLink>
@@ -75,65 +82,26 @@ const Sidebar = () => {
 
 				{/* Admin NavLinks */}
 				<NavLink to='/dashboard/manage-tickets'>
-					<li className="flex items-center py-2 px-2 md:space-x-4  hover:rounded hover:cursor-pointer hover:bg-blue-600 hover:text-white">
-						<FaCog />
+					<li className="flex items-center py-2 px-2 md:space-x-4  hover:rounded hover:cursor-pointer hover:bg-cyan-700 hover:text-white">
+						<LuTicketX />
 						<span className="hidden md:inline ">Manage tickets</span>
 					</li>
 				</NavLink>
 
 				<NavLink to='/dashboard/manage-users'>
-					<li className="flex items-center py-2 px-2 md:space-x-4  hover:rounded hover:cursor-pointer hover:bg-blue-600 hover:text-white">
-						<FaCog />
+					<li className="flex items-center py-2 px-2 md:space-x-4  hover:rounded hover:cursor-pointer hover:bg-cyan-700 hover:text-white">
+						<FaUsersCog />
 						<span className="hidden md:inline ">Manage users</span>
 					</li>
 				</NavLink>
 
 				<NavLink to='/dashboard/advertise-tickets'>
-					<li className="flex items-center py-2 px-2 md:space-x-4  hover:rounded hover:cursor-pointer hover:bg-blue-600 hover:text-white">
-						<FaCog />
+					<li className="flex items-center py-2 px-2 md:space-x-4  hover:rounded hover:cursor-pointer hover:bg-cyan-700 hover:text-white">
+						<FcAdvertising />
 						<span className="hidden md:inline ">Advertise tickets</span>
 					</li>
 				</NavLink>
-
 			</ul>
-
-
-
-
-			{/* <ul className='flex flex-col mt-5 text-xl'>
-				<Link to='/dashboard'>
-					<li className='flex items-center py-2 px-2 md:space-x-4  hover:rounded hover:cursor-pointer  hover:bg-blue-600 hover:text-white'>
-						<FaTachometerAlt />
-						<span className='hidden md:inline'>Dashboard</span>
-
-					</li>
-				</Link>
-				<li className="flex items-center py-2 px-2 md:space-x-4  hover:rounded hover:cursor-pointer hover:text-white hover:bg-blue-600">
-					<FaShoppingCart />
-					<span className="hidden md:inline ">Orders</span>
-				</li>
-				<li className="flex items-center py-2 px-2 md:space-x-4  hover:rounded hover:cursor-pointer  hover:text-white hover:bg-blue-600">
-					<FaUsers />
-					<span className="hidden md:inline ">Customers</span>
-				</li>
-				<li className="flex items-center py-2 px-2 md:space-x-4  hover:rounded hover:cursor-pointer  hover:text-white hover:bg-blue-600">
-					<FaUser />
-					<span className="hidden md:inline ">Users</span>
-				</li>
-				<li className="flex items-center py-2 px-2 md:space-x-4  hover:rounded hover:cursor-pointer  hover:text-white hover:bg-blue-600">
-					<FaBox />
-					<span className="hidden md:inline ">Products</span>
-				</li>
-				<li className="flex items-center py-2 px-2 md:space-x-4  hover:rounded hover:cursor-pointer  hover:text-white hover:bg-blue-600">
-					<FaCog />
-					<span className="hidden md:inline ">Settings</span>
-				</li>
-			</ul> */}
-
-
-
-
-
 
 		</div>
 	)
