@@ -3,12 +3,13 @@ import { dataLine, dataBar } from './../../chartData'
 import { Bar, Line } from 'react-chartjs-2';
 
 const RevenueOverview = () => {
+
     return (
         <div className='p-8'>
 
-            <div class="flex flex-wrap gap-5 items-center w-full max-md:max-w-full mb-4">
-                <div class="flex flex-col self-stretch my-auto min-w-[240px]">
-                    <div class="text-gray-800  text-2xl">Revenue overview</div>
+            <div className="flex flex-wrap gap-5 items-center w-full max-md:max-w-full mb-4">
+                <div className="flex flex-col self-stretch my-auto min-w-[240px]">
+                    <div className="text-gray-800  text-2xl">Revenue overview</div>
                 </div>
             </div>
 

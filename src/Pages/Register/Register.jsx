@@ -12,11 +12,6 @@ const Register = () => {
     const location = useLocation()
     const from = location.state || '/'
 
-
-
-
-
-
     const handleUserRegister = (data) => {
         const { name, photoURL, email, password } = data
 
@@ -114,10 +109,10 @@ const Register = () => {
                                         <input type="url" {...register('photoURL', { required: true })}
                                             placeholder=" Photo URL"
                                             className="flex h-10 w-full rounded-full border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50" />
-                                        {/* {
+                                        {
                                             errors.photoURL?.type === 'required' &&
-                                            <p className='text-red-600 text-xs mt-1 font-semibold'>photo URL is required</p>
-                                        } */}
+                                            <p className='text-red-600 text-xs mt-1 font-semibold'>Photo URL is required</p>
+                                        }
                                     </div>
                                 </div>
 

@@ -4,9 +4,9 @@ import React from 'react';
 const ManageTickets = () => {
     return (
         <div className="grow p-8">
-            <div class="flex flex-wrap gap-5 items-center w-full max-md:max-w-full mb-4">
-                <div class="flex flex-col self-stretch my-auto min-w-[240px]">
-                    <div class="text-gray-800  text-2xl">Manage tickets</div>
+            <div className="flex flex-wrap gap-5 items-center w-full max-md:max-w-full mb-4">
+                <div className="flex flex-col self-stretch my-auto min-w-[240px]">
+                    <div className="text-gray-800  text-2xl">Manage tickets</div>
                 </div>
             </div>
 
