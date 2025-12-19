@@ -47,7 +47,7 @@ const NavbarMenu = () => {
                     {
                         user ?
                             <div className='flex items-center gap-3'>
-                                <Dropdown arrowIcon={false} inline label={<Avatar alt="User settings" img={user?.photoURL} rounded />}>
+                                <Dropdown arrowIcon={false} inline label={<Avatar alt="Avatar" img={user?.photoURL} rounded referrerPolicy='no-referrer'/>}>
                                     {/* <DropdownHeader>
                                         <span className="block truncate text-sm font-medium">name@flowbite.com</span>
                                     </DropdownHeader> */}

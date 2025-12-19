@@ -5,9 +5,10 @@ import { Link } from 'react-router';
 import toast from 'react-hot-toast';
 import { uploadImageBb } from '../../../../utils';
 import useAuth from '../../../../hooks/useAuth';
+import axios from 'axios';
 
 const AddTicket = () => {
-    const {user} = useAuth()
+    const { user } = useAuth()
     const { register, handleSubmit, formState: { errors } } = useForm()
 
 
@@ -16,40 +17,40 @@ const AddTicket = () => {
 
 
         const imageFile = ticketImage[0]
-        const imageUrl = await uploadImageBb(imageFile)
 
-        const ticketData = {
-            ticketTitle,
-            from, 
-            transporType, 
-            price: Number(price),
-            ticketQuantity: Number(ticketQuantity), 
-            departureDateTime, 
-            Perks,
-            ticketImage: imageUrl,
-            vendor: {
-                image: user?.photoURL,
-                name: user?.displayName,
-                email: user?.email,
+        try {
+
+            const imageUrl = await uploadImageBb(imageFile)
+
+            const ticketData = {
+                status: 'pending',
+                ticketTitle,
+                from,
+                transporType,
+                price: Number(price),
+                ticketQuantity: Number(ticketQuantity),
+                departureDateTime,
+                Perks,
+                ticketImage: imageUrl,
+                vendor: {
+                    image: user?.photoURL,
+                    name: user?.displayName,
+                    email: user?.email,
+                }
             }
+
+            const {data} = await axios.post(`${import.meta.env.VITE_API_URL}/tickets`, ticketData)
+
+            // console.table(ticketData)
+            console.log(data);
+            toast.success('Added');
+            
+
+
+        } catch (error) {
+            console.log(error);
+            toast.error(error?.message);
         }
-
-        console.table(ticketData)
-        toast.success('Ticket added Successfull');
-
-
-        // toast.success('Ticket added Successfull');
-
-
-        // try {
-        //     // const imageUrl = data?.data?.display_url
-
-
-
-        // } catch (error) {
-        //     console.log(error);
-        //     toast.error(error?.message);
-        // }
     }
 
     return (
