@@ -23,57 +23,57 @@ const Sidebar = () => {
 			<ul className='flex flex-col mt-5 text-lg'>
 
 				<NavLink to='/dashboard'>
-					<li className='flex items-center py-2 px-2 md:space-x-4  hover:rounded hover:cursor-pointer hover:bg-cyan-700 hover:text-white'>
+					<li className='flex items-center py-2 px-2 md:space-x-4  hover:rounded hover:cursor-pointer'>
 						<FaTachometerAlt />
 						<span className='hidden md:inline'>Dashboard</span>
 					</li>
 				</NavLink>
 
-				<NavLink to='/dashboard/user-profile'>
-					<li className="flex items-center py-2 px-2 md:space-x-4  hover:rounded hover:cursor-pointer hover:bg-cyan-700 hover:text-white">
+				<NavLink to='/user-profile'>
+					<li className="flex items-center py-2 px-2 md:space-x-4  hover:rounded hover:cursor-pointer">
 						<CgProfile />
 						<span className="hidden md:inline ">Profile</span>
 					</li>
 				</NavLink>
 
-				<NavLink to='/dashboard/my-booked-tickets'>
-					<li className="flex items-center py-2 px-2 md:space-x-4  hover:rounded hover:cursor-pointer hover:bg-cyan-700 hover:text-white">
+				<NavLink to='/my-booked-tickets'>
+					<li className="flex items-center py-2 px-2 md:space-x-4  hover:rounded hover:cursor-pointer">
 						<BsTicketDetailed />
 						<span className="hidden md:inline ">My booked tickets</span>
 					</li>
 				</NavLink>
 
-				<NavLink to='/dashboard/transaction-history'>
-					<li className="flex items-center py-2 px-2 md:space-x-4  hover:rounded hover:cursor-pointer hover:bg-cyan-700 hover:text-white">
+				<NavLink to='/transaction-history'>
+					<li className="flex items-center py-2 px-2 md:space-x-4  hover:rounded hover:cursor-pointer">
 						<GrTransaction />
 						<span className="hidden md:inline ">Transaction history</span>
 					</li>
 				</NavLink>
 
 				{/* Vendor NavLinks */}
-				<NavLink to='/dashboard/add-ticket'>
-					<li className="flex items-center py-2 px-2 md:space-x-4 hover:rounded hover:cursor-pointer hover:bg-cyan-700 hover:text-white">
+				<NavLink to='/add-ticket'>
+					<li className="flex items-center py-2 px-2 md:space-x-4 hover:rounded hover:cursor-pointer">
 						<VscDiffAdded />
 						<span className="hidden md:inline ">Add ticket</span>
 					</li>
 				</NavLink>
 
-				<NavLink to='/dashboard/my-added-tickets'>
-					<li className="flex items-center py-2 px-2 md:space-x-4  hover:rounded hover:cursor-pointer hover:bg-cyan-700 hover:text-white">
+				<NavLink to='/my-added-tickets'>
+					<li className="flex items-center py-2 px-2 md:space-x-4  hover:rounded hover:cursor-pointer">
 						<LuTicketCheck />
 						<span className="hidden md:inline ">My added tickets</span>
 					</li>
 				</NavLink>
 
-				<NavLink to='/dashboard/requested-bookings'>
-					<li className="flex items-center py-2 px-2 md:space-x-4  hover:rounded hover:cursor-pointer hover:bg-cyan-700 hover:text-white">
+				<NavLink to='/requested-bookings'>
+					<li className="flex items-center py-2 px-2 md:space-x-4  hover:rounded hover:cursor-pointer">
 						<TbBrandBooking />
 						<span className="hidden md:inline ">Requested bookings</span>
 					</li>
 				</NavLink>
 
-				<NavLink to='/dashboard/revenue-overview'>
-					<li className="flex items-center py-2 px-2 md:space-x-4  hover:rounded hover:cursor-pointer hover:bg-cyan-700 hover:text-white">
+				<NavLink to='/revenue-overview'>
+					<li className="flex items-center py-2 px-2 md:space-x-4  hover:rounded hover:cursor-pointer">
 						<GrOverview />
 						<span className="hidden md:inline ">Revenue overview</span>
 					</li>
@@ -81,22 +81,22 @@ const Sidebar = () => {
 
 
 				{/* Admin NavLinks */}
-				<NavLink to='/dashboard/manage-tickets'>
-					<li className="flex items-center py-2 px-2 md:space-x-4  hover:rounded hover:cursor-pointer hover:bg-cyan-700 hover:text-white">
+				<NavLink to='/manage-tickets'>
+					<li className="flex items-center py-2 px-2 md:space-x-4  hover:rounded hover:cursor-pointer">
 						<LuTicketX />
 						<span className="hidden md:inline ">Manage tickets</span>
 					</li>
 				</NavLink>
 
-				<NavLink to='/dashboard/manage-users'>
-					<li className="flex items-center py-2 px-2 md:space-x-4  hover:rounded hover:cursor-pointer hover:bg-cyan-700 hover:text-white">
+				<NavLink to='/manage-users'>
+					<li className="flex items-center py-2 px-2 md:space-x-4  hover:rounded hover:cursor-pointer">
 						<FaUsersCog />
 						<span className="hidden md:inline ">Manage users</span>
 					</li>
 				</NavLink>
 
-				<NavLink to='/dashboard/advertise-tickets'>
-					<li className="flex items-center py-2 px-2 md:space-x-4  hover:rounded hover:cursor-pointer hover:bg-cyan-700 hover:text-white">
+				<NavLink to='/advertise-tickets'>
+					<li className="flex items-center py-2 px-2 md:space-x-4  hover:rounded hover:cursor-pointer">
 						<FcAdvertising />
 						<span className="hidden md:inline ">Advertise tickets</span>
 					</li>

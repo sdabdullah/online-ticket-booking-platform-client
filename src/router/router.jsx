@@ -19,6 +19,7 @@ import RevenueOverview from "../Pages/Dashboard/Menu/Vendor/RevenueOverview";
 import MyBookedTickets from "../Pages/Dashboard/Menu/User/MyBookedTickets";
 import TransactionHistory from "../Pages/Dashboard/Menu/User/TransactionHistory";
 import UserProfile from "../Pages/Dashboard/Menu/User/UserProfile";
+import UpdateVendorTicekt from "../Pages/Dashboard/Menu/Vendor/UpdateVendorTicekt";
 
 export const router = createBrowserRouter([
     {
@@ -48,63 +49,68 @@ export const router = createBrowserRouter([
     },
 
     {
-        path: 'dashboard',
+        path: '/',
         element: <DashboardLayout></DashboardLayout>,
         children: [
             {
+                index: true,
                 path: '/dashboard',
                 element: <Dashboard></Dashboard>
             },
             {
-                path: '/dashboard/user-profile',
+                path: '/user-profile',
                 element: <UserProfile></UserProfile>
             },
             {
-                path: '/dashboard/my-booked-tickets',
+                path: '/my-booked-tickets',
                 element: <MyBookedTickets></MyBookedTickets>
             },
             {
-                path: '/dashboard/transaction-history',
+                path: '/transaction-history',
                 element: <TransactionHistory></TransactionHistory>
             },
 
             // Vendor Router
             {
-                path: '/dashboard/vendor-profile',
+                path: '/vendor-profile',
                 element: <VendorProfile></VendorProfile>
             },
             {
-                path: '/dashboard/add-ticket',
+                path: '/add-ticket',
                 element: <AddTicket></AddTicket>
             },
             {
-                path: '/dashboard/my-added-tickets',
+                path: '/my-added-tickets',
                 element: <MyAddedTickets></MyAddedTickets>
             },
             {
-                path: '/dashboard/requested-bookings',
+                path: '/update-vendor-ticket/:id',
+                element: <UpdateVendorTicekt></UpdateVendorTicekt>
+            },
+            {
+                path: '/requested-bookings',
                 element: <RequestedBookings></RequestedBookings>
             },
             {
-                path: '/dashboard/revenue-overview',
+                path: '/revenue-overview',
                 element: <RevenueOverview></RevenueOverview>
             },
 
             // Admin Router
             {
-                path: '/dashboard/admin-profile',
+                path: '/admin-profile',
                 element: <AdminProfile></AdminProfile>
             },
             {
-                path: '/dashboard/manage-tickets',
+                path: '/manage-tickets',
                 element: <ManageTickets></ManageTickets>
             },
             {
-                path: '/dashboard/manage-users',
+                path: '/manage-users',
                 element: <ManageUsers></ManageUsers>
             },
             {
-                path: '/dashboard/advertise-tickets',
+                path: '/advertise-tickets',
                 element: <AdvertiseTickets></AdvertiseTickets>
             },
 
