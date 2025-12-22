@@ -1,16 +1,31 @@
 import React from 'react';
 import TicketCard from '../../component/ForHome/TicketCard';
 import WhyChoose from '../../component/ForHome/WhyChoose';
-import { Button } from "flowbite-react";
 import { NavLink } from 'react-router';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
+import { useQuery } from '@tanstack/react-query';
+import LoaderSpinner from '../../component/Shared/Navbar/LoaderSpinner';
 
 const Home = () => {
+    const axiosSecure = useAxiosSecure();
+
+    const { data: tickets = [], isLoading, } = useQuery({
+        queryKey: ['TicketInHome'],
+        queryFn: async () => {
+            const result = await axiosSecure.get('/tickets')
+            // console.log(result.data);
+            return result.data
+        }
+    })
+
+    if (isLoading) {
+        return <LoaderSpinner></LoaderSpinner>
+    }
+
     return (
         <div>
             <div className='w-11/12 mx-auto'>
                 <img className='' src="https://images.unsplash.com/photo-1759313912855-0ea4bb3c0a2c?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
-
-
             </div>
 
 
@@ -24,9 +39,10 @@ const Home = () => {
 
                     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
 
-                        <TicketCard></TicketCard>
-                        <TicketCard></TicketCard>
-                        <TicketCard></TicketCard>
+                        {
+                            tickets.map(ticket => <TicketCard key={ticket._id} ticket={ticket}></TicketCard>)
+                        }
+
 
                     </div>
 
@@ -43,11 +59,12 @@ const Home = () => {
                         <p className='text-gray-600 dark:text-gray-300'>Recently added tickets for your convenience</p>
                     </div>
 
-                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
+                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 '>
 
-                        <TicketCard></TicketCard>
-                        <TicketCard></TicketCard>
-                        <TicketCard></TicketCard>
+                        {
+                            tickets.map(ticket => <TicketCard key={ticket._id} ticket={ticket}></TicketCard>)
+                        }
+                        {/* <TicketCard></TicketCard> */}
 
                     </div>
 

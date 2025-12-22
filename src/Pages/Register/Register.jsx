@@ -21,12 +21,12 @@ const Register = () => {
         // const photoURL = form.photoURL.value;
         // const password = form.password.value;
 
-        console.log(data);
+        // console.log(data);
 
         createUser(email, password)
             .then(result => {
                 const user = result.user
-                console.log(user)
+                // console.log(user)
 
                 updateUserProfile(name, photoURL)
                     .then(() => {
@@ -34,14 +34,14 @@ const Register = () => {
                         toast.success('Registration Successful')
                     })
                     .catch((error) => {
-                        console.log(error);
+                        // console.log(error);
                         toast.error('Something is wrong in')
                     })
             })
             .catch(error => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
-                console.log(errorCode, errorMessage);
+                // console.log(errorCode, errorMessage);
                 toast.error('Registration Not Successful')
             })
     }
@@ -51,12 +51,12 @@ const Register = () => {
         registerWithGoogle()
             .then(result => {
                 toast.success('Login Success')
-                console.log(result.user);
+                // console.log(result.user);
                 navigate(from, { replace: true })
                 // toast.success('Registration Successful with your google account')
             })
             .catch(error => {
-                console.log(error);
+                // console.log(error);
                 toast.error('Incorrect info or Network Problem')
             })
     }

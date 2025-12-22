@@ -30,7 +30,7 @@ const NavbarMenu = () => {
                 navigate('/')
             })
             .catch((error) => {
-                console.log(error);
+                // console.log(error);
                 toast.error('Somthing is wrong')
             })
     }

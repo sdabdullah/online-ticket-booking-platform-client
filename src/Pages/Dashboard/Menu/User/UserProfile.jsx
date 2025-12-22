@@ -21,7 +21,7 @@ const UserProfile = () => {
                     </div>
 
                     <div className="flex items-center flex-col">
-                        <p className="font-bold">Parisa Tabrizi</p>
+                        <p className="font-bold">Abdullah</p>
                         <p className=" text-gray-500"> User Id: USER3872XG9</p>
                         <p className=" text-gray-500">Email: ab.faishal@gmail.com</p>
                     </div>

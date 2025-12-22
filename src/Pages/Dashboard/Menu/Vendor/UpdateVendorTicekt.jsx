@@ -18,7 +18,6 @@ const UpdateVendorTicekt = () => {
                     </div>
                 </div>
 
-
                 <form >
 
                     <div className="grid grid-cols-2 gap-6 mb-10">

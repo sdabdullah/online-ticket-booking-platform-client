@@ -20,6 +20,7 @@ import MyBookedTickets from "../Pages/Dashboard/Menu/User/MyBookedTickets";
 import TransactionHistory from "../Pages/Dashboard/Menu/User/TransactionHistory";
 import UserProfile from "../Pages/Dashboard/Menu/User/UserProfile";
 import UpdateVendorTicekt from "../Pages/Dashboard/Menu/Vendor/UpdateVendorTicekt";
+import TicketDetailsCard from "../component/ForHome/TicketDetailsCard";
 
 export const router = createBrowserRouter([
     {
@@ -35,6 +36,10 @@ export const router = createBrowserRouter([
             {
                 path: '/all-tickets',
                 element: <AllTickets></AllTickets>
+            },
+            {
+                path: '/ticket-details/:id',
+                element: <TicketDetailsCard></TicketDetailsCard>
             },
             {
                 path: '/login',

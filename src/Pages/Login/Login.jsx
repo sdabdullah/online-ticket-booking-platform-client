@@ -21,19 +21,19 @@ const Login = () => {
         // const email = form.email.value;
         // const password = form.password.value;
 
-        console.log({ email, password });
+        // console.log({ email, password });
 
         signInUser(email, password)
             .then((userCredential) => {
                 const user = userCredential.user;
-                console.log(user);
+                // console.log(user);
                 navigate(from, { replace: true })
                 toast.success('Login Successful')
             })
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
-                console.log(errorCode, errorMessage);
+                // console.log(errorCode, errorMessage);
                 toast.error('Login Not Successful')
             });
     }
@@ -44,12 +44,12 @@ const Login = () => {
         signInWithGoogle()
             .then(result => {
                 toast.success('Login Success')
-                console.log(result.user);
+                // console.log(result.user);
                 navigate(from, { replace: true })
                 // toast.success('Login Successful with your google account')
             })
             .catch(error => {
-                console.log(error);
+                // console.log(error);
                 toast.error('Incorrect info or Network Problem')
             })
     }

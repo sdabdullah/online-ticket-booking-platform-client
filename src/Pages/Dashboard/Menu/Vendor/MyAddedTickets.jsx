@@ -15,11 +15,11 @@ const MyAddedTickets = () => {
         queryKey: ['MyAddedTickets'],
         queryFn: async () => {
             const result = await axiosSecure.get('/tickets')
-            console.log(result.data);
             return result.data
         }
     })
 
+// console.log(tickets);
 
     if (isLoading) {
         return <LoaderSpinner></LoaderSpinner>
