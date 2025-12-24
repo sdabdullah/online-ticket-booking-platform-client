@@ -29,7 +29,7 @@ const MyBookedTickets = () => {
 
             <div className="flex flex-wrap gap-5 items-center w-full max-md:max-w-full mb-4">
                 <div className="flex flex-col self-stretch my-auto min-w-[240px]">
-                    <div className="text-gray-800  text-2xl">Your booked tickets</div>
+                    <div className="text-gray-800  text-2xl">Your booked tickets {mybookedtickets.length}</div>
                 </div>
             </div>
 
