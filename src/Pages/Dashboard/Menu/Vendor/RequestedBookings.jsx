@@ -1,7 +1,25 @@
 import React from 'react';
 import { Table, TableBody, TableCell, TableHead, TableHeadCell, TableRow } from "flowbite-react";
+import { useQuery } from '@tanstack/react-query';
+import useAxiosSecure from '../../../../hooks/useAxiosSecure';
+import LoaderSpinner from '../../../../component/Shared/Navbar/LoaderSpinner';
 
 const RequestedBookings = () => {
+
+    const { data: requestedTickets = [], isLoading, } = useQuery({
+        queryKey: ['MyAddedTickets', ],
+        queryFn: async () => {
+            const result = await useAxiosSecure.get(`/reqested-user-booked-tickets/${email}`)
+            return result.data
+        }
+    })
+
+    // console.log(tickets);
+
+    // if (isLoading) {
+    //     return <LoaderSpinner></LoaderSpinner>
+    // }
+    
     return (
         <div className='p-8'>
 

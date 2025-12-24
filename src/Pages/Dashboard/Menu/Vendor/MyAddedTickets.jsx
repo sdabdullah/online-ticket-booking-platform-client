@@ -19,7 +19,7 @@ const MyAddedTickets = () => {
         }
     })
 
-// console.log(tickets);
+    // console.log(tickets);
 
     if (isLoading) {
         return <LoaderSpinner></LoaderSpinner>
