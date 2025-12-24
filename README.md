@@ -1,16 +1,103 @@
-# React + Vite
+Project Description
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The Online Ticket Booking Platform is a full-stack web application that allows users to browse events, view details, and book tickets through a secure and user-friendly interface. The platform uses modern frontend technologies for a fast and responsive experience, while a scalable backend manages data and bookings. User authentication is handled securely using Firebase Authentication.
 
-Currently, two official plugins are available:
+Purpose of the Project
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The purpose of this project is to:
 
-## React Compiler
+Provide a reliable and secure online ticket booking system
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Build a real-world full-stack application using modern technologies
 
-## Expanding the ESLint configuration
+Implement secure user authentication and authorization
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Improve data fetching and state management using TanStack Query
+
+Gain hands-on experience with frontend–backend integration
+
+Live URL
+
+👉 Live Demo:
+
+https://your-live-project-url.com
+
+
+(Replace with your deployed link)
+
+Key Features
+
+🎟️ Browse and explore available events
+
+📄 View detailed event information (date, time, venue, pricing)
+
+🛒 Ticket booking functionality
+
+🔐 User authentication (sign up, login, logout) using Firebase
+
+🔄 Efficient data fetching, caching, and synchronization with TanStack Query
+
+📱 Fully responsive design for all devices
+
+⚡ High performance using Vite
+
+🎨 Modern UI with Tailwind CSS
+
+🧩 Accessible components with Headless UI and Flowbite React
+
+🔔 Toast notifications for user actions using React Hot Toast
+
+🔗 RESTful backend API for events, users, and bookings
+
+Frontend Technologies
+
+JavaScript (ES6+)
+
+React (Vite)
+
+Tailwind CSS
+
+TanStack Query (React Query)
+
+Headless UI
+
+Flowbite React
+
+Firebase Authentication
+
+Backend Technologies
+
+Node.js
+
+Express.js
+
+MongoDB
+
+NPM Packages Used
+Frontend
+
+react
+
+vite
+
+tailwindcss
+
+@tanstack/react-query
+
+@headlessui/react
+
+flowbite-react
+
+react-hot-toast
+
+firebase
+
+Backend
+
+express – Server framework for REST APIs
+
+mongodb / mongoose – Database and ODM for MongoDB
+
+cors – Cross-origin resource sharing
+
+dotenv – Environment variable management

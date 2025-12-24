@@ -35,7 +35,7 @@ const BookingModal = ({ closeModal, isOpen, ticket }) => {
                 email: user?.email,
             },
             vendor,
-            
+
             createdAt: new Date().toDateString()
         }
         // console.log(userBookingData);
@@ -84,7 +84,7 @@ const BookingModal = ({ closeModal, isOpen, ticket }) => {
                                         <div
                                             className="absolute top-0 right-full w-full h-full bg-white transform group-hover:translate-x-full group-hover:scale-102 transition duration-500"
                                         ></div>
-                                        <span className="relative">Confirm Booking</span>
+                                        <span className="relative">Submit Booking</span>
                                     </button>
                                 </Fieldset>
                             </form>
