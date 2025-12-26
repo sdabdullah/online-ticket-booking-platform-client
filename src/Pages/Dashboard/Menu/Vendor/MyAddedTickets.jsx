@@ -3,23 +3,24 @@ import React from 'react';
 import VendorTicketCard from './VendorTicketCard';
 import { useQuery } from '@tanstack/react-query';
 import useAxiosSecure from '../../../../hooks/useAxiosSecure';
-// import useAuth from '../../../../hooks/useAuth';
+import useAuth from '../../../../hooks/useAuth';
 import LoaderSpinner from '../../../../component/Shared/Navbar/LoaderSpinner';
 
 
 const MyAddedTickets = () => {
-    // const { user } = useAuth();
+    const { user } = useAuth();
     const axiosSecure = useAxiosSecure();
 
     const { data: tickets = [], isLoading, } = useQuery({
-        queryKey: ['MyAddedTickets'],
+        queryKey: ['MyAddedTickets', user?.email],
         queryFn: async () => {
-            const result = await axiosSecure.get('/tickets')
+            const result = await axiosSecure.get(`/vendor-added-tickets/${user?.email}`)
+            // const result = await axiosSecure.get(`/vendor-added-tickets/${user?.email}`)
             return result.data
         }
     })
 
-    // console.log(tickets);
+    console.log(tickets);
 
     if (isLoading) {
         return <LoaderSpinner></LoaderSpinner>

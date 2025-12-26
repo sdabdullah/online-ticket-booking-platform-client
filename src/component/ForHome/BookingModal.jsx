@@ -27,16 +27,15 @@ const BookingModal = ({ closeModal, isOpen, ticket }) => {
             departureDateTime,
             Perks,
             ticketImage,
-            user: user?.email,
-            status: 'pending',
-            user_profile: {
+            // user: user?.email,
+            user: {
                 image: user?.photoURL,
                 name: user?.displayName,
                 email: user?.email,
             },
+            createdAt: new Date(),
             vendor,
-
-            createdAt: new Date().toDateString()
+            status: 'pending',
         }
         // console.log(userBookingData);
 

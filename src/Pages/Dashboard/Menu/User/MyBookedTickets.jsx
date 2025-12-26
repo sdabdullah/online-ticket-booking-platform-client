@@ -14,6 +14,7 @@ const MyBookedTickets = () => {
         queryKey: ['MyBookedTickets', user?.email],
         queryFn: async () => {
             const result = await axiosSecure.get(`/user-booked-tickets/${user?.email}`)
+            // Customar Booked Ticket
             return result.data
         }
     })

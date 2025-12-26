@@ -16,7 +16,7 @@ const AddTicket = () => {
 
 
     const handleAddTicket = async (data) => {
-        const { ticketTitle, from, transporType, price, ticketQuantity, departureDateTime, Perks, ticketImage, vendorName, vendorEmail } = data
+        const { ticketTitle, from, transporType, price, ticketQuantity, departureDateTime, Perks, ticketImage } = data
 
 
         const imageFile = ticketImage[0]
@@ -26,7 +26,6 @@ const AddTicket = () => {
             const imageUrl = await uploadImageBb(imageFile)
 
             const ticketData = {
-
                 ticketTitle,
                 from,
                 transporType,
@@ -35,13 +34,14 @@ const AddTicket = () => {
                 departureDateTime,
                 Perks,
                 ticketImage: imageUrl,
+                // vendor: user?.email,
                 vendor: {
-                    image: user?.photoURL,
-                    name: vendorName,
-                    email: vendorEmail,
+                    name: user?.displayName,
+                    email: user?.email,
+                    image: user?.photoURL
                 },
                 status: 'pending',
-                createdAt: new Date().toDateString()
+                createdAt: new Date()
             }
 
             axiosSecure.post('/tickets', ticketData);
@@ -206,7 +206,7 @@ const AddTicket = () => {
                             <input type="text" id="floating_outlined"
 
                                 defaultValue={user?.displayName} readOnly
-                                
+
                                 className="block w-full text-sm h-[50px] px-4 text-slate-900 bg-white rounded-[8px] border border-violet-200 appearance-none focus:border-transparent focus:outline focus:outline-2 focus:outline-primary focus:ring-0 hover:border-brand-500-secondary- peer invalid:border-error-500 invalid:focus:border-error-500 overflow-ellipsis overflow-hidden text-nowrap pr-[48px]"
                                 placeholder="Vendor name" {...register('vendorName', { required: true })} />
 
@@ -217,7 +217,7 @@ const AddTicket = () => {
                         <div id="input" className="relative">
                             <input type="email" id="floating_outlined"
 
-                            defaultValue={user?.email} readOnly
+                                defaultValue={user?.email} readOnly
 
                                 className="block w-full text-sm h-[50px] px-4 text-slate-900 bg-white rounded-[8px] border border-violet-200 appearance-none focus:border-transparent focus:outline focus:outline-2 focus:outline-primary focus:ring-0 hover:border-brand-500-secondary- peer invalid:border-error-500 invalid:focus:border-error-500 overflow-ellipsis overflow-hidden text-nowrap pr-[48px]"
                                 placeholder="Vendor email" {...register('vendorEmail', { required: true })} />
